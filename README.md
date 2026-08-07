@@ -20,11 +20,14 @@ The central rule is simple:
 The method applies to performance, reliability, incident management,
 fundamentals, cost, quality, capacity, delivery, and other measurable outcomes.
 
+STACK-AND-TRACK was developed by Gio Della-Libera and David Blyth.
+
 ## Start here
 
 - [Methodology](METHODOLOGY.md)
 - [Canonical context](CONTEXT.md)
 - [Role governance](.roles/ROLE.md)
+- [Foundation role review](context/role-reviews/2026-08-06-foundation.md)
 
 This repository is documentation-first. Software, including optional Rust
 tooling, is admitted only when role review shows that it makes the method easier
