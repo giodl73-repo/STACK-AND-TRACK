@@ -32,12 +32,16 @@ fully and independently.
 ## P-04: Prefer surplus coverage when feasible
 
 Exactly 1x coverage is fragile. Build meaningful contingency, often approaching
-2x nominal opportunity, when the solution space and metric permit it.
+2x nominal opportunity, when the solution space and metric permit it. Treat
+surplus as option, velocity, and regression reserve: it can accelerate progress
+or replace a failed intervention without collapsing the required rate.
 
-**Test:** Can the target survive one or more reasonable misses?
+**Test:** Can the target survive one or more reasonable misses without starting
+every option or exceeding safe work in progress?
 
 **Failure:** Treating 2x as a universal law near a hard ceiling, or treating a
-barely sufficient plan as resilient.
+barely sufficient plan as resilient, or converting 2x coverage into 2x
+concurrent execution.
 
 ## P-05: Pareto-prioritize the vital few
 
@@ -67,6 +71,10 @@ evidence window?
 
 **Failure:** Reporting completed tasks, deployed features, or closed incidents
 as outcome improvement.
+
+For staged releases, credit only the accepted gain from the denominator already
+exposed. First deployment, migration completion, and full-population outcome
+confirmation are different events.
 
 ## P-08: Measure the portfolio; attribute carefully
 
@@ -119,6 +127,10 @@ tail, cohort, privacy, or externality harm.
 **Failure:** Saving cost by shifting work, improving averages while tails
 worsen, or reducing incidents by reducing reporting.
 
+Aggregate wins do not cancel unacceptable scenario or cohort regressions.
+Repairing those regressions remains mandatory even when the weighted average
+improves.
+
 ## P-13: Match rhythm to evidence latency
 
 Update events promptly, but do not claim results before build, testing,
@@ -139,3 +151,37 @@ proprietary tool?
 
 **Failure:** Hiding assumptions inside automation or treating generated numbers
 as authority.
+
+## P-15: Version material goal changes
+
+Changes to the outcome, technology constraint, denominator, horizon, or
+acceptance conditions create a new governed goal version.
+
+**Test:** Are the old history, new baseline, decision owner, transfer audit,
+coverage, capacity, and confidence reset visible?
+
+**Failure:** Adding a top-down mandate while preserving the previous green
+status, denominator, and commitments.
+
+## P-16: A technology is not automatically the outcome
+
+A portal, platform, migration, or architecture may be a solution constraint,
+acceptance condition, or prerequisite. Keep the intended user or business
+outcome separately measurable.
+
+**Test:** Could the technology reach 100% completion while the outcome still
+fails?
+
+**Failure:** Declaring success because migration finished even though latency,
+reliability, quality, cost, or user experience missed.
+
+## P-17: Preserve wins and repair regressions
+
+When a change improves some scenarios and harms others, retain the valid
+mechanisms, expose the scenario arithmetic, and add mandatory remediation.
+
+**Test:** Are material wins, regressions, population shares, guardrails, and
+extra work visible independently?
+
+**Failure:** Rejecting all useful learning because one scenario failed, or
+averaging severe harm away with gains elsewhere.

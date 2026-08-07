@@ -21,15 +21,18 @@ Input:
 Produce:
 
 1. Outcome statement
+   - goal version and effective date
    - metric
    - baseline
    - target
    - required impact
    - unit
+   - outcome denominator and material cohorts
    - horizon
    - measurement source
    - outcome owner
    - guardrails
+   - acceptance conditions or technology constraints
 
 2. Missing-information ledger
    For each missing field, explain why it matters and who or what can resolve it.
@@ -48,6 +51,8 @@ Produce:
    - owner
    - measurement plan
    - guardrail risk
+   - affected denominator and rollout sequence
+   - scenario-specific wins or regressions
 
 4. Coverage
    - required impact
@@ -64,7 +69,8 @@ Produce:
 
 6. Timing proposal
    Place candidates into learning-now, landing-soon, structural-later, and
-   contingency lanes. Identify the earliest trustworthy evidence date for each.
+   contingency lanes. Identify first exposure, full exposure, earliest
+   trustworthy evidence, and confirmation dates when rollout is staged.
 
 7. Findings
    Return pass, finding, or defer for outcome clarity, stack sufficiency,

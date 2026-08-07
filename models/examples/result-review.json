@@ -1,0 +1,185 @@
+{
+  "schemaVersion": "0.1",
+  "reviewId": "review-P-01-2026-09-01",
+  "reviewedAt": "2026-09-01T18:00:00Z",
+  "goalVersion": "performance-v1",
+  "candidate": {
+    "id": "P-01",
+    "title": "Remove serial metadata lookup",
+    "owner": "candidate owner",
+    "mechanism": "Remove one blocking operation from the request critical path."
+  },
+  "prediction": {
+    "originalGain": {
+      "value": 1.4,
+      "sourceType": "human-provided",
+      "source": "profiling estimate",
+      "observedAt": "2026-08-06T19:00:00Z"
+    },
+    "currentGain": {
+      "value": 1.4,
+      "sourceType": "human-provided",
+      "source": "profiling estimate",
+      "observedAt": "2026-08-06T19:00:00Z"
+    },
+    "confidence": {
+      "value": 0.8,
+      "sourceType": "human-provided",
+      "source": "performance team assessment",
+      "observedAt": "2026-08-06T19:00:00Z"
+    },
+    "assumptions": [
+      "Cache validation cost remains small."
+    ],
+    "dependencies": [],
+    "expectedOverlap": {
+      "value": null,
+      "sourceType": "unknown",
+      "source": null,
+      "observedAt": null
+    }
+  },
+  "result": {
+    "status": "accepted",
+    "attributedGain": {
+      "value": 1.3,
+      "sourceType": "measured",
+      "source": "comparable production telemetry",
+      "observedAt": "2026-09-01T17:00:00Z"
+    },
+    "variance": {
+      "value": -0.1,
+      "sourceType": "calculated",
+      "source": "1.3 minus 1.4",
+      "observedAt": "2026-09-01T18:00:00Z"
+    },
+    "outcomeAfter": {
+      "value": 8.7,
+      "sourceType": "measured",
+      "source": "comparable production telemetry",
+      "observedAt": "2026-09-01T17:00:00Z"
+    },
+    "attributionConfidence": "high",
+    "denominatorExposed": {
+      "value": 1,
+      "sourceType": "measured",
+      "source": "rollout telemetry",
+      "observedAt": "2026-08-22T17:00:00Z"
+    },
+    "guardrails": [
+      {
+        "name": "error rate",
+        "state": "acceptable",
+        "evidence": [
+          {
+            "type": "measurement",
+            "reference": "error-rate confirmation window",
+            "observedAt": "2026-09-01T17:00:00Z",
+            "note": "No material change."
+          }
+        ]
+      }
+    ],
+    "cohortResults": [
+      {
+        "cohortId": "all-requests",
+        "localGain": {
+          "value": 1.3,
+          "sourceType": "measured",
+          "source": "cohort telemetry",
+          "observedAt": "2026-09-01T17:00:00Z"
+        },
+        "weightedGain": {
+          "value": 1.3,
+          "sourceType": "calculated",
+          "source": "1.0 denominator share multiplied by 1.3",
+          "observedAt": "2026-09-01T18:00:00Z"
+        },
+        "guardrailState": "acceptable"
+      }
+    ],
+    "evidence": [
+      {
+        "type": "measurement",
+        "reference": "latency confirmation window",
+        "observedAt": "2026-09-01T17:00:00Z",
+        "note": "Baseline and result windows are comparable."
+      }
+    ]
+  },
+  "varianceAnalysis": {
+    "explanation": "Cache validation added slightly more work than predicted.",
+    "contributors": [
+      "underperformance"
+    ]
+  },
+  "learning": {
+    "changedAssumptions": [
+      "Cache-related candidates should include validation overhead."
+    ],
+    "affectedCandidates": [
+      "P-04"
+    ],
+    "priorityChanged": true,
+    "newCandidateNeeded": false
+  },
+  "portfolioBefore": {
+    "currentOutcome": {
+      "value": 10,
+      "sourceType": "measured",
+      "source": "baseline telemetry",
+      "observedAt": "2026-08-01T00:00:00Z"
+    },
+    "outstandingImpact": {
+      "value": 2,
+      "sourceType": "calculated",
+      "source": "10 minus 8",
+      "observedAt": "2026-08-06T19:00:00Z"
+    },
+    "credibleRemainingImpact": {
+      "value": 2.5,
+      "sourceType": "calculated",
+      "source": "accepted portfolio model before result",
+      "observedAt": "2026-08-06T19:00:00Z"
+    },
+    "coverageRatio": {
+      "value": 1.25,
+      "sourceType": "calculated",
+      "source": "2.5 divided by 2.0",
+      "observedAt": "2026-08-06T19:00:00Z"
+    }
+  },
+  "portfolioAfter": {
+    "currentOutcome": {
+      "value": 8.7,
+      "sourceType": "measured",
+      "source": "confirmation telemetry",
+      "observedAt": "2026-09-01T17:00:00Z"
+    },
+    "outstandingImpact": {
+      "value": 0.7,
+      "sourceType": "calculated",
+      "source": "8.7 minus 8.0",
+      "observedAt": "2026-09-01T18:00:00Z"
+    },
+    "credibleRemainingImpact": {
+      "value": 1.05,
+      "sourceType": "calculated",
+      "source": "revised remaining portfolio",
+      "observedAt": "2026-09-01T18:00:00Z"
+    },
+    "coverageRatio": {
+      "value": 1.5,
+      "sourceType": "calculated",
+      "source": "1.05 divided by 0.70",
+      "observedAt": "2026-09-01T18:00:00Z"
+    }
+  },
+  "decision": "accept-result",
+  "humanAcceptance": {
+    "status": "accepted",
+    "acceptedBy": "outcome owner",
+    "acceptedAt": "2026-09-01T18:00:00Z",
+    "reason": "Measurement, attribution, confirmation, and guardrails are acceptable."
+  }
+}

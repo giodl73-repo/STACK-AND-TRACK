@@ -14,6 +14,7 @@
 | Curve shape | linear / front-loaded / back-loaded / S-curve / stepwise |
 | Rationale for shape | |
 | Measurement source | |
+| Outcome denominator | population / requests / users / tenants / other |
 | Outcome owner | |
 
 ## Cumulative trajectory
@@ -39,9 +40,26 @@ Horizon Coverage Ratio:
 |---|---|---|---|---|---|---|---|---:|---|
 | | learning now / landing soon / structural later / contingency | | | | | | | | |
 
+## Rollout exposure, if applicable
+
+| Candidate | Cohort order | First exposure | Exposure by next checkpoint | Full exposure | Global confirmation | Cohort guardrails | Hotfix or rollback allowance |
+|---|---|---|---:|---|---|---|---|
+| | | | | | | | |
+
+```text
+Exposure-weighted realized gain:
+Largest unexposed cohort:
+Impact concentrated in final rollout stages:
+Latest safe start for a target-closing intervention:
+```
+
 ## Concentration risks
 
 - [ ] Too much expected impact lands near the target date.
+- [ ] Shipped work is credited before the affected denominator is exposed.
+- [ ] Large cohorts are concentrated in the final rollout stages.
+- [ ] Global movement can hide a cohort regression.
+- [ ] Hotfix recovery omits repeated rollout and evidence time.
 - [ ] Too many interventions are in the same lifecycle phase.
 - [ ] Confirmation extends beyond the target date.
 - [ ] Early checkpoints contain activity but no meaningful evidence.

@@ -7,6 +7,7 @@
 | [High reliability: 99.9% to 99.999%](reliability-99.9-to-99.999.md) | Multiplicative residual risk | Five nines requires layered prevention, containment, recovery, and verification |
 | [Incident management](incident-impact-minutes.md) | Weighted operational pain | Prioritize customer pain rather than incident count |
 | [Fundamentals](fundamentals-recurring-loss.md) | Structural improvement | Connect foundational work to recurring loss and evidence milestones without inventing points |
+| [Transformed-composite case pack](transformed-composites/README.md) | Cross-domain operating cases | Startup, synchronization, authoring regressions, and API reliability |
 
 Every example is illustrative. It teaches the method and does not claim that
 the data describes a real system.

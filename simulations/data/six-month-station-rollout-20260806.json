@@ -1,0 +1,153 @@
+{
+  "simulation": "six-month population-weighted station rollout",
+  "date": "2026-08-06",
+  "outcome": {
+    "metric": "population-weighted mean user-observed latency",
+    "baselineSeconds": 20.0,
+    "targetSeconds": 15.0,
+    "requiredReductionSeconds": 5.0,
+    "horizonWeeks": 26
+  },
+  "stations": [
+    {
+      "rolloutWeek": 1,
+      "name": "Oceania",
+      "populationWeight": 0.03,
+      "cumulativeExposure": 0.03
+    },
+    {
+      "rolloutWeek": 2,
+      "name": "Africa and Middle East",
+      "populationWeight": 0.07,
+      "cumulativeExposure": 0.1
+    },
+    {
+      "rolloutWeek": 3,
+      "name": "Latin America",
+      "populationWeight": 0.08,
+      "cumulativeExposure": 0.18
+    },
+    {
+      "rolloutWeek": 4,
+      "name": "Asia-Pacific",
+      "populationWeight": 0.17,
+      "cumulativeExposure": 0.35
+    },
+    {
+      "rolloutWeek": 5,
+      "name": "Europe",
+      "populationWeight": 0.27,
+      "cumulativeExposure": 0.62
+    },
+    {
+      "rolloutWeek": 6,
+      "name": "United States",
+      "populationWeight": 0.38,
+      "cumulativeExposure": 1.0
+    }
+  ],
+  "initialStack": {
+    "nominalImpactSeconds": 9.8,
+    "nominalCoverageRatio": 1.96,
+    "confidenceAdjustedImpactSeconds": 6.835,
+    "overlapAndDependencyReserveSeconds": 0.9,
+    "crediblePlannedImpactSeconds": 5.935,
+    "stackCoverageRatio": 1.187
+  },
+  "executedInterventions": [
+    {
+      "id": "S-01",
+      "title": "Remove serial configuration lookup",
+      "firstStationWeek": 2,
+      "fullExposureWeek": 7,
+      "finalAcceptedGainSeconds": 1.25
+    },
+    {
+      "id": "S-02",
+      "title": "Reduce response payload and parsing",
+      "firstStationWeek": 5,
+      "fullExposureWeek": 10,
+      "finalAcceptedGainSeconds": 1.3
+    },
+    {
+      "id": "S-03",
+      "title": "Reuse warm service connections",
+      "firstStationWeek": 8,
+      "fullExposureWeek": 13,
+      "finalAcceptedGainSeconds": 1.15
+    },
+    {
+      "id": "S-04",
+      "title": "Add regional projection cache",
+      "firstStationWeek": 11,
+      "plannedFullExposureWeek": 16,
+      "regressionWeek": 12,
+      "hotfixBuildAndTestWeeks": [
+        12,
+        13
+      ],
+      "restartWeek": 14,
+      "actualFullExposureWeek": 19,
+      "finalAcceptedGainSeconds": 0.9
+    },
+    {
+      "id": "S-05",
+      "title": "Eliminate redundant policy evaluation",
+      "contingencyActivatedWeek": 14,
+      "firstStationWeek": 14,
+      "fullExposureWeek": 19,
+      "finalAcceptedGainSeconds": 1.0
+    }
+  ],
+  "regression": {
+    "interventionId": "S-04",
+    "week": 12,
+    "expectedGlobalGainAtTenPercentExposureSeconds": 0.09,
+    "oceaniaGlobalGainSeconds": 0.027,
+    "africaMiddleEastLocalRegressionSeconds": 2.0,
+    "africaMiddleEastGlobalRegressionSeconds": 0.14,
+    "netObservedGlobalContributionSeconds": -0.113,
+    "decision": "freeze, roll back, hotfix, repeat station rollout"
+  },
+  "weeklyAcceptedReductionSeconds": [
+    0.0,
+    0.0,
+    0.0375,
+    0.125,
+    0.225,
+    0.4765,
+    0.905,
+    1.484,
+    1.7395,
+    2.171,
+    2.757,
+    2.9795,
+    3.263,
+    3.7,
+    3.757,
+    3.89,
+    4.042,
+    4.365,
+    4.878,
+    5.6,
+    5.6,
+    5.6,
+    5.6,
+    5.6,
+    5.6,
+    5.6,
+    5.6
+  ],
+  "finalPortfolio": {
+    "acceptedReductionSeconds": 5.6,
+    "acceptedLatencySeconds": 14.4,
+    "targetFirstReachedWeek": 19,
+    "finalConfirmationWeek": 26,
+    "targetReached": true,
+    "unusedOptions": [
+      "S-06",
+      "S-07",
+      "S-08"
+    ]
+  }
+}

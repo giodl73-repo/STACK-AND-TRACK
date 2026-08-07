@@ -5,9 +5,9 @@ original prediction; add revisions so forecasting changes remain visible.
 
 ## Outcome state
 
-| Date | Baseline | Current value | Target | Outstanding impact | Credible remaining impact | Coverage ratio | Decision |
-|---|---:|---:|---:|---:|---:|---:|---|
-| | | | | | | | |
+| Date | Goal version | Baseline | Current value | Target | Denominator exposed | Outstanding impact | Credible remaining impact | Coverage ratio | Decision |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---|
+| | | | | | | | | | |
 
 ## Intervention ledger
 
@@ -59,6 +59,18 @@ Allowed status values:
 |---|---|---:|---:|---:|---|---|---|
 | | | | | | | | |
 
+## Goal-change and transfer history
+
+| Date | Previous goal | New goal | Change owner | Prior item | Transfer classification | New baseline treatment | Capacity or schedule effect | Decision |
+|---|---|---|---|---|---|---|---|---|
+| | | | | | transferable / revalidate / prerequisite / stranded / conflicting / unknown | | | |
+
+## Scenario and cohort results
+
+| Date | Candidate | Scenario or cohort | Denominator share | Local result | Weighted result | Guardrail | Repair status |
+|---|---|---|---:|---:|---:|---|---|
+| | | | | | | | |
+
 ## Ledger rules
 
 1. Preserve original and revised predictions.
@@ -68,3 +80,7 @@ Allowed status values:
 5. Recalculate the outstanding target after every accepted result.
 6. Propagate learning into all related candidates.
 7. Keep retired candidates and their reasons visible.
+8. Version material goal changes and preserve the previous accepted history.
+9. Do not count transferred mechanisms again when the new baseline includes
+   them.
+10. Keep aggregate gains and scenario regressions visible separately.

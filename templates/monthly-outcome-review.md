@@ -39,17 +39,32 @@ Confidence is a reasoned judgment, not an average of the five dimensions.
 
 ## 2. Outcome decision
 
-| Baseline | Current | Target | Horizon | Sustained? | Guardrails acceptable? |
-|---:|---:|---:|---|---|---|
-| | | | | yes / no / unknown | yes / no / unknown |
+| Goal version | Baseline | Current | Target | Denominator | Horizon | Sustained? | Guardrails acceptable? |
+|---|---:|---:|---:|---|---|---|---|
+| | | | | | | yes / no / unknown | yes / no / unknown |
 
 Decision:
 
 - [ ] Continue toward the current target.
 - [ ] Confirm the target is reached and sustained.
 - [ ] Stage or revise the target.
+- [ ] Accept a material outcome, technology, denominator, or acceptance-condition change.
 - [ ] Change the horizon.
 - [ ] Stop because the outcome no longer warrants investment.
+
+If the goal changed:
+
+```text
+Decision owner and rationale:
+Previous goal version:
+New goal version:
+New measured baseline:
+Prior accepted history preserved:
+Transferable, stranded, prerequisite, conflicting, and unknown work:
+Recalculated coverage and temporal coverage:
+Capacity, rollout, hotfix, and confirmation effect:
+Leadership tradeoff accepted:
+```
 
 ## 3. Portfolio sufficiency
 
@@ -161,6 +176,8 @@ change the outcome.
 | Provisional gains awaiting confirmation | | | |
 | Unreviewed measurable results | | | |
 | Stale active candidates | | | |
+| Goal-change decision latency | | | |
+| Transfer-audit completion latency | | | |
 
 ## Review disposition
 

@@ -102,6 +102,44 @@ A portfolio can have horizon coverage above 1x while temporal coverage is below
 1x for most of the period. That plan may reach the target only if late work
 performs perfectly.
 
+## Exposure-weighted realization
+
+Some interventions do not reach the whole measured population when they ship.
+They move through regions, stations, tenants, devices, rings, or customer
+cohorts over time.
+
+For those portfolios, forecast impact by exposed denominator:
+
+```text
+Exposure-weighted realized gain =
+  sum of (
+    cohort share of the outcome denominator
+    x accepted local gain for that cohort
+  )
+```
+
+Track at least:
+
+- first production exposure;
+- cumulative denominator exposed at each checkpoint;
+- high-concentration cohorts still unexposed;
+- full-population date;
+- cohort and global confirmation dates;
+- rollback and hotfix time, including repeated rollout stages.
+
+Do not credit full predicted impact at build completion or first deployment.
+If 35% of the denominator is exposed, no more than the measured contribution
+from that 35% belongs in the realized global curve.
+
+Aggregate progress also cannot overrule cohort guardrails. A severe regression
+in a small cohort may barely move a global average. Stop conditions therefore
+operate at both cohort and portfolio level.
+
+Use an aggregatable outcome unit. Means, totals, rates with compatible
+denominators, and loss units may be weighted when their definitions permit it.
+Do not average regional percentile values and call the result a global
+percentile.
+
 ## Stagger the intervention portfolio
 
 Do not place every selected intervention in the same lifecycle phase. Maintain
@@ -271,6 +309,8 @@ forecasts become more back-loaded, or decisions remain open.
    intervention succeeds.
 8. Change the curve explicitly when new evidence changes the expected outcome
    shape.
+9. For staged deployments, credit only exposure-weighted accepted impact and
+   preserve time to repeat rollout stages after a rollback or hotfix.
 
 ## Timeliness without theater
 

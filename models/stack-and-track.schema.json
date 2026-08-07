@@ -14,7 +14,7 @@
   ],
   "properties": {
     "schemaVersion": {
-      "const": "0.1"
+      "const": "0.2"
     },
     "asOf": {
       "type": "string",
@@ -22,6 +22,12 @@
     },
     "outcome": {
       "$ref": "#/$defs/outcome"
+    },
+    "cohorts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cohort"
+      }
     },
     "snapshot": {
       "$ref": "#/$defs/snapshot"
@@ -42,6 +48,12 @@
       "type": "array",
       "items": {
         "$ref": "#/$defs/decision"
+      }
+    },
+    "goalChanges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/goalChange"
       }
     }
   },
@@ -143,16 +155,44 @@
         }
       }
     },
+    "cohort": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "denominatorShare"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "denominatorShare": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "guardrails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/guardrail"
+          }
+        }
+      }
+    },
     "outcome": {
       "type": "object",
       "additionalProperties": false,
       "required": [
+        "goalVersion",
         "metric",
         "direction",
         "baseline",
         "current",
         "target",
         "unit",
+        "denominator",
         "startDate",
         "targetDate",
         "measurementSource",
@@ -160,6 +200,22 @@
         "guardrails"
       ],
       "properties": {
+        "goalVersion": {
+          "type": "string"
+        },
+        "effectiveDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "previousGoalVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "metric": {
           "type": "string"
         },
@@ -181,6 +237,9 @@
         "unit": {
           "type": "string"
         },
+        "denominator": {
+          "type": "string"
+        },
         "startDate": {
           "type": "string",
           "format": "date"
@@ -199,6 +258,12 @@
           "type": "array",
           "items": {
             "$ref": "#/$defs/guardrail"
+          }
+        },
+        "acceptanceConditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
           }
         }
       }
@@ -299,6 +364,51 @@
             "null"
           ],
           "format": "date"
+        },
+        "firstExposureDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "fullExposureDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "confirmationCompleteDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        }
+      }
+    },
+    "rollout": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "strategy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "denominatorExposed": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "largestUnexposedCohort": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rollbackOrHotfixAllowanceDays": {
+          "$ref": "#/$defs/sourcedNumber"
         }
       }
     },
@@ -371,6 +481,47 @@
             "string",
             "null"
           ]
+        },
+        "cohortResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/cohortResult"
+          }
+        }
+      }
+    },
+    "cohortResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cohortId",
+        "localGain",
+        "weightedGain",
+        "guardrailState"
+      ],
+      "properties": {
+        "cohortId": {
+          "type": "string"
+        },
+        "localGain": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "weightedGain": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "guardrailState": {
+          "enum": [
+            "acceptable",
+            "watch",
+            "breached",
+            "unknown"
+          ]
+        },
+        "evidence": {
+          "type": [
+            "string",
+            "null"
+          ]
         }
       }
     },
@@ -429,6 +580,17 @@
         "mechanism": {
           "type": "string"
         },
+        "transferClassification": {
+          "enum": [
+            "not-applicable",
+            "transferable",
+            "revalidation-required",
+            "prerequisite",
+            "stranded",
+            "conflicting",
+            "unknown"
+          ]
+        },
         "originalPredictedImpact": {
           "$ref": "#/$defs/sourcedNumber"
         },
@@ -449,6 +611,9 @@
         },
         "timeline": {
           "$ref": "#/$defs/timeline"
+        },
+        "rollout": {
+          "$ref": "#/$defs/rollout"
         },
         "relationships": {
           "type": "array",
@@ -499,6 +664,52 @@
         },
         "acceptedCumulativeImpact": {
           "$ref": "#/$defs/sourcedNumber"
+        },
+        "denominatorExposed": {
+          "$ref": "#/$defs/sourcedNumber"
+        }
+      }
+    },
+    "goalChange": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "at",
+        "previousGoalVersion",
+        "nextGoalVersion",
+        "owner",
+        "reason",
+        "coverageDisposition"
+      ],
+      "properties": {
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "previousGoalVersion": {
+          "type": "string"
+        },
+        "nextGoalVersion": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "coverageDisposition": {
+          "enum": [
+            "insufficient",
+            "fragile",
+            "supported"
+          ]
+        },
+        "transferAuditEvidence": {
+          "type": [
+            "string",
+            "null"
+          ]
         }
       }
     },

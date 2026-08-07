@@ -1,0 +1,199 @@
+{
+  "simulation": "six-month top-down portal pivot",
+  "date": "2026-08-06",
+  "changeWeek": 9,
+  "goalV1": {
+    "metric": "population-weighted mean user-observed latency",
+    "baselineSeconds": 20.0,
+    "targetSeconds": 15.0,
+    "horizonWeeks": 26,
+    "acceptedReductionAtChangeSeconds": 1.74,
+    "acceptedLatencyAtChangeSeconds": 18.26
+  },
+  "goalV2": {
+    "technology": "Nova Portal",
+    "baselineSeconds": 18.6,
+    "targetSeconds": 15.0,
+    "requiredReductionSeconds": 3.6,
+    "migrationTarget": 1.0,
+    "migrationTargetWeek": 20,
+    "performanceTargetWeek": 23,
+    "confirmationWeek": 26
+  },
+  "scenarioBenchmark": [
+    {
+      "scenario": "browse and search",
+      "populationWeight": 0.35,
+      "localChangeSeconds": -1.8,
+      "weightedChangeSeconds": -0.63
+    },
+    {
+      "scenario": "read and detail views",
+      "populationWeight": 0.25,
+      "localChangeSeconds": -1.0,
+      "weightedChangeSeconds": -0.25
+    },
+    {
+      "scenario": "transactions and sign-in",
+      "populationWeight": 0.2,
+      "localChangeSeconds": 2.0,
+      "weightedChangeSeconds": 0.4
+    },
+    {
+      "scenario": "administrative workflows",
+      "populationWeight": 0.1,
+      "localChangeSeconds": 4.0,
+      "weightedChangeSeconds": 0.4
+    },
+    {
+      "scenario": "low-bandwidth and accessibility paths",
+      "populationWeight": 0.1,
+      "localChangeSeconds": 4.2,
+      "weightedChangeSeconds": 0.42
+    }
+  ],
+  "transferAudit": {
+    "historicalV1AcceptedReductionSeconds": 1.74,
+    "v2BaselineIncludesTransferredMechanisms": true,
+    "separateV2CarryoverCreditSeconds": 0.0,
+    "stoppedLegacyWork": [
+      "regional projection cache"
+    ]
+  },
+  "coverage": {
+    "initialCredibleImpactSeconds": 3.063,
+    "initialCoverageRatio": 0.851,
+    "addedCredibleImpactSeconds": 0.873,
+    "revisedCredibleImpactSeconds": 3.936,
+    "revisedCoverageRatio": 1.093,
+    "nominalOpportunitySeconds": 5.92,
+    "nominalCoverageRatio": 1.644
+  },
+  "packageA": {
+    "fullPopulationAcceptedGainSeconds": 2.45,
+    "components": [
+      {
+        "name": "repair regressed scenarios",
+        "gainSeconds": 1.22
+      },
+      {
+        "name": "portal server rendering",
+        "gainSeconds": 0.75
+      },
+      {
+        "name": "revalidated shared backend improvements",
+        "gainSeconds": 0.48
+      }
+    ],
+    "rollout": [
+      {
+        "week": 13,
+        "adoption": 0.03,
+        "acceptedGainSeconds": 0.0735
+      },
+      {
+        "week": 14,
+        "adoption": 0.1,
+        "acceptedGainSeconds": 0.245
+      },
+      {
+        "week": 15,
+        "attemptedAdoption": 0.18,
+        "acceptedAdoptionAfterRollback": 0.1,
+        "acceptedGainSeconds": 0.245,
+        "event": "Latin America sign-in regression"
+      },
+      {
+        "week": 16,
+        "adoption": 0.1,
+        "acceptedGainSeconds": 0.245,
+        "event": "hotfix build and test"
+      },
+      {
+        "week": 17,
+        "adoption": 0.18,
+        "acceptedGainSeconds": 0.441
+      },
+      {
+        "week": 18,
+        "adoption": 0.35,
+        "acceptedGainSeconds": 0.8575
+      },
+      {
+        "week": 19,
+        "adoption": 0.62,
+        "acceptedGainSeconds": 1.519
+      },
+      {
+        "week": 20,
+        "adoption": 1.0,
+        "acceptedGainSeconds": 2.45
+      }
+    ]
+  },
+  "regression": {
+    "week": 15,
+    "station": "Latin America",
+    "populationWeight": 0.08,
+    "localSignInLatencyRegressionSeconds": 1.5,
+    "globalWeightedRegressionSeconds": 0.12,
+    "decision": "freeze, roll back station, hotfix, repeat affected rollout gate"
+  },
+  "packageB": {
+    "fullPopulationAcceptedGainSeconds": 1.3,
+    "components": [
+      {
+        "name": "shared portal data contract",
+        "gainSeconds": 0.5
+      },
+      {
+        "name": "asset loading and preload policy",
+        "gainSeconds": 0.3
+      },
+      {
+        "name": "simplified portal route composition",
+        "gainSeconds": 0.5
+      }
+    ],
+    "rollout": [
+      {
+        "week": 18,
+        "exposure": 0.03,
+        "acceptedGainSeconds": 0.039
+      },
+      {
+        "week": 19,
+        "exposure": 0.1,
+        "acceptedGainSeconds": 0.13
+      },
+      {
+        "week": 20,
+        "exposure": 0.18,
+        "acceptedGainSeconds": 0.234
+      },
+      {
+        "week": 21,
+        "exposure": 0.35,
+        "acceptedGainSeconds": 0.455
+      },
+      {
+        "week": 22,
+        "exposure": 0.62,
+        "acceptedGainSeconds": 0.806
+      },
+      {
+        "week": 23,
+        "exposure": 1.0,
+        "acceptedGainSeconds": 1.3
+      }
+    ]
+  },
+  "finalPortfolio": {
+    "portalMigrationCompleteWeek": 20,
+    "performanceTargetReachedWeek": 23,
+    "finalConfirmationWeek": 26,
+    "acceptedReductionSeconds": 3.75,
+    "acceptedLatencySeconds": 14.85,
+    "targetReached": true
+  }
+}

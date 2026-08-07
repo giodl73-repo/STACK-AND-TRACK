@@ -1,7 +1,10 @@
 {
-  "schemaVersion": "0.1",
+  "schemaVersion": "0.2",
   "asOf": "2026-08-06T19:00:00Z",
   "outcome": {
+    "goalVersion": "performance-v1",
+    "effectiveDate": "2026-08-01",
+    "previousGoalVersion": null,
     "metric": "p95 request latency",
     "direction": "decrease",
     "baseline": {
@@ -23,6 +26,7 @@
       "observedAt": "2026-08-01T00:00:00Z"
     },
     "unit": "seconds",
+    "denominator": "all comparable production requests",
     "startDate": "2026-08-01",
     "targetDate": "2026-10-24",
     "measurementSource": "production telemetry",
@@ -38,8 +42,25 @@
         "state": "acceptable",
         "evidence": "baseline window"
       }
+    ],
+    "acceptanceConditions": [
+      "The target is sustained through the confirmation window.",
+      "No material request cohort regresses."
     ]
   },
+  "cohorts": [
+    {
+      "id": "all-requests",
+      "name": "All comparable production requests",
+      "denominatorShare": {
+        "value": 1,
+        "sourceType": "calculated",
+        "source": "complete outcome denominator",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "guardrails": []
+    }
+  ],
   "snapshot": {
     "requiredImpact": {
       "value": 2,
@@ -85,6 +106,7 @@
       "status": "selected",
       "lane": "landing-soon",
       "mechanism": "Remove one blocking operation from the request critical path.",
+      "transferClassification": "not-applicable",
       "originalPredictedImpact": {
         "value": 1.4,
         "sourceType": "human-provided",
@@ -116,7 +138,26 @@
         "shipDate": "2026-08-17",
         "measurementStart": "2026-08-18",
         "earliestLearningDate": "2026-08-25",
-        "acceptanceDate": "2026-09-01"
+        "acceptanceDate": "2026-09-01",
+        "firstExposureDate": "2026-08-17",
+        "fullExposureDate": "2026-08-22",
+        "confirmationCompleteDate": "2026-09-01"
+      },
+      "rollout": {
+        "strategy": "staged production rollout",
+        "denominatorExposed": {
+          "value": 0,
+          "sourceType": "measured",
+          "source": "not yet shipped",
+          "observedAt": "2026-08-06T19:00:00Z"
+        },
+        "largestUnexposedCohort": "all-requests",
+        "rollbackOrHotfixAllowanceDays": {
+          "value": 7,
+          "sourceType": "human-provided",
+          "source": "delivery plan",
+          "observedAt": "2026-08-06T19:00:00Z"
+        }
       },
       "relationships": [],
       "assumptions": [
@@ -139,7 +180,8 @@
         },
         "explanation": null,
         "evidence": [],
-        "acceptedBy": null
+        "acceptedBy": null,
+        "cohortResults": []
       },
       "revisions": []
     },
@@ -149,6 +191,7 @@
       "status": "selected",
       "lane": "learning-now",
       "mechanism": "Overlap independent downstream wait time.",
+      "transferClassification": "not-applicable",
       "originalPredictedImpact": {
         "value": 1,
         "sourceType": "human-provided",
@@ -180,7 +223,26 @@
         "shipDate": "2026-08-14",
         "measurementStart": "2026-08-15",
         "earliestLearningDate": "2026-08-20",
-        "acceptanceDate": "2026-08-27"
+        "acceptanceDate": "2026-08-27",
+        "firstExposureDate": "2026-08-14",
+        "fullExposureDate": "2026-08-19",
+        "confirmationCompleteDate": "2026-08-27"
+      },
+      "rollout": {
+        "strategy": "staged production rollout",
+        "denominatorExposed": {
+          "value": 0,
+          "sourceType": "measured",
+          "source": "not yet shipped",
+          "observedAt": "2026-08-06T19:00:00Z"
+        },
+        "largestUnexposedCohort": "all-requests",
+        "rollbackOrHotfixAllowanceDays": {
+          "value": 7,
+          "sourceType": "human-provided",
+          "source": "delivery plan",
+          "observedAt": "2026-08-06T19:00:00Z"
+        }
       },
       "relationships": [
         {
@@ -214,7 +276,8 @@
         },
         "explanation": null,
         "evidence": [],
-        "acceptedBy": null
+        "acceptedBy": null,
+        "cohortResults": []
       },
       "revisions": []
     }
@@ -245,6 +308,12 @@
         "sourceType": "measured",
         "source": "no accepted results",
         "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "denominatorExposed": {
+        "value": 0,
+        "sourceType": "measured",
+        "source": "no candidate exposed",
+        "observedAt": "2026-08-06T19:00:00Z"
       }
     },
     {
@@ -272,6 +341,12 @@
         "sourceType": "unknown",
         "source": null,
         "observedAt": null
+      },
+      "denominatorExposed": {
+        "value": null,
+        "sourceType": "unknown",
+        "source": null,
+        "observedAt": null
       }
     }
   ],
@@ -283,5 +358,6 @@
       "status": "proposed",
       "reason": "Largest early learning value; the 0.86x stack remains insufficient and requires additional candidates before target commitment."
     }
-  ]
+  ],
+  "goalChanges": []
 }

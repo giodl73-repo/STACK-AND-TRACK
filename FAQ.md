@@ -23,6 +23,11 @@ No. The plan must credibly reach at least 1x. Meaningful surplus coverage is
 preferred because estimates and interventions miss. Two times nominal
 opportunity is a useful aspiration in many domains, not a universal law.
 
+The surplus is option, velocity, and regression reserve. Successful work can
+move ahead of the required curve; if another intervention regresses or is
+rolled back, a ready alternative can preserve the normal required rate. This
+does not mean starting twice as much work. Keep safe capacity and WIP limits.
+
 Near a ceiling or floor, literal 2x non-overlapping impact may be impossible.
 Use loss units, independent solution paths, scenarios, and staged
 confidence-building.
@@ -107,8 +112,25 @@ quality, cost, toil, tail, cohort, privacy, or externality constraints.
 ## What if the target changes?
 
 Record who changed it, why, when, and which evidence justified the change.
-Recalculate required impact and coverage immediately. Never preserve an old
-"on track" status after changing the denominator.
+Create a new goal version when the outcome, technology constraint, denominator,
+horizon, or acceptance conditions materially change. Preserve the old history,
+measure the new baseline, audit which work transfers, and recalculate impact,
+temporal coverage, capacity, rollout, and confirmation time. Never preserve an
+old "on track" status after changing the commitment.
+
+## What if leadership mandates a new portal or technology?
+
+First classify whether it changes the outcome, adds an acceptance condition, or
+imposes a solution constraint. Migration is not automatically the outcome.
+
+Measure the new system, preserve its valid wins, expose scenario regressions,
+and classify old work as transferable, revalidation required, prerequisite,
+stranded, conflicting, or unknown. If the revised stack does not add up,
+leadership must change resources, scope, horizon, target, or the constraint.
+
+Do not let attractive aggregate gains hide transaction, administration,
+accessibility, regional, tail, or other cohort regressions. Those remain
+mandatory repair work.
 
 ## How should weekly reports and monthly meetings differ?
 

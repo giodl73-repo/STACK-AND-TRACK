@@ -20,7 +20,9 @@ Rules:
 Produce:
 
 1. Current state
+   - goal version
    - accepted outcome
+   - denominator exposed
    - outstanding impact
    - remaining time
    - required remaining rate
@@ -41,6 +43,7 @@ Produce:
    - Temporal Coverage Ratio by checkpoint
    - Horizon Coverage Ratio
    - sensitivity
+   - exposure-weighted realization by checkpoint
 
 4. Revised Pareto order
    Explain accelerations, deferrals, retirements, and new candidates.
@@ -55,4 +58,8 @@ Produce:
 7. Findings
    Return pass, finding, or defer for sufficiency, timing, attribution,
    guardrails, and leadership confidence.
+
+If the trigger is a material goal or technology change, first produce a transfer
+audit, preserve the prior goal history, establish the new baseline, and require
+human acceptance of the revised commitment.
 ```

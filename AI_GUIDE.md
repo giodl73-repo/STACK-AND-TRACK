@@ -28,6 +28,13 @@ AI must not:
 - treat shipment, tests, or milestones as realized outcome movement;
 - waive safety, quality, privacy, tail, cohort, cost, or externality guardrails;
 - make funding, staffing, release, safety, or policy decisions.
+- copy private workplace names, links, titles, identifiers, excerpts, or
+  distinctive operational details into public material;
+- present transformed private patterns as historical public case studies.
+
+For public examples, follow [`PUBLICATION_POLICY.md`](PUBLICATION_POLICY.md).
+Use generic domains and synthetic or transformed numbers that preserve the
+methodological lesson without preserving source identity.
 
 ## Source labels
 

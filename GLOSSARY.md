@@ -78,6 +78,18 @@ opportunity or move the system bottleneck.
 The first date the planned measurement window can produce trustworthy
 provisional evidence.
 
+### Exposure-weighted realized gain
+
+Accepted local gain multiplied by the exposed share of the outcome denominator,
+summed across cohorts. It prevents first deployment from receiving
+full-population impact credit.
+
+### Goal version
+
+An immutable statement of baseline, target, denominator, horizon, measurement,
+acceptance conditions, owner, and effective period. A material change creates a
+new version rather than rewriting history.
+
 ### Guardrail
 
 A metric or constraint that must remain acceptable while the primary outcome
@@ -138,6 +150,12 @@ The estimated outcome movement assigned to an intervention before realization.
 Measured movement that has not completed its confirmation, attribution, or
 guardrail review.
 
+### Regression reserve
+
+Credible alternative impact and schedule capacity retained so a failed,
+rolled-back, or harmful intervention can be replaced without abandoning the
+required outcome trajectory. It is not surplus concurrent work.
+
 ### Required impact
 
 The change needed to move from baseline or current accepted value to the
@@ -176,6 +194,11 @@ contingency when physically and economically feasible.
 Time after shipment for rollout effects, caches, behavior, traffic, and
 operations to settle before representative measurement.
 
+### Stranded work
+
+Completed or planned work whose mechanism no longer contributes to the current
+goal after a target, technology, denominator, or architecture change.
+
 ### Time to confirmation
 
 Elapsed time through build, test, ship, stabilization, measurement, and the
@@ -185,6 +208,12 @@ additional persistence window.
 
 Elapsed time through build, test, ship, stabilization, measurement, and result
 review.
+
+### Transfer audit
+
+Review of prior work after a material goal change, classifying it as
+transferable, revalidation required, prerequisite, stranded, conflicting, or
+unknown.
 
 ### Variance
 

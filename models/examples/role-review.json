@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "0.1",
+  "reviewId": "schema-suite-review-2026-08-06",
+  "reviewedAt": "2026-08-06T22:00:00Z",
+  "artifacts": [
+    "models/SCHEMA_DESIGN.md",
+    "models/common.schema.json",
+    "models/result-review.schema.json",
+    "models/role-review.schema.json"
+  ],
+  "reviews": [
+    {
+      "role": "Practitioner Advocate",
+      "cluster": "parliament",
+      "disposition": "finding",
+      "note": "The initial proposal included an event schema without a demonstrated practitioner need.",
+      "findings": [
+        {
+          "id": "schema-complexity-01",
+          "severity": "major",
+          "artifact": "models/SCHEMA_DESIGN.md",
+          "finding": "An event bus contract would create premature infrastructure complexity.",
+          "owner": "maintainer",
+          "status": "closed",
+          "closureCondition": "Defer the event schema and keep the first suite to snapshots and review packets.",
+          "closureEvidence": "The design boundaries explicitly defer append-only events."
+        }
+      ]
+    },
+    {
+      "role": "Goodhart Auditor",
+      "cluster": "assurance",
+      "disposition": "pass",
+      "note": "Schema validity is explicitly separated from human acceptance and outcome truth.",
+      "findings": []
+    },
+    {
+      "role": "Clarity Editor",
+      "cluster": "editorial",
+      "disposition": "pass",
+      "note": "The three record types have distinct purposes and examples.",
+      "findings": []
+    }
+  ],
+  "dissent": [
+    "A future implementation may prefer append-only events, but current evidence does not justify that contract."
+  ],
+  "fixedPoint": {
+    "status": "reached",
+    "openCritical": 0,
+    "openMajor": 0,
+    "defers": [
+      {
+        "topic": "Append-only event schema",
+        "destination": "A later Software Admission Gate package after repeated practitioner demand",
+        "owner": "maintainer"
+      }
+    ]
+  }
+}

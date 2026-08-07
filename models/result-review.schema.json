@@ -1,0 +1,332 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/giodl73-repo/STACK-AND-TRACK/models/result-review.schema.json",
+  "title": "Stack & Track Result Review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "reviewId",
+    "reviewedAt",
+    "goalVersion",
+    "candidate",
+    "prediction",
+    "result",
+    "varianceAnalysis",
+    "learning",
+    "portfolioBefore",
+    "portfolioAfter",
+    "decision",
+    "humanAcceptance"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "0.1"
+    },
+    "reviewId": {
+      "type": "string"
+    },
+    "reviewedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "goalVersion": {
+      "type": "string"
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "owner",
+        "mechanism"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "owner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mechanism": {
+          "type": "string"
+        }
+      }
+    },
+    "prediction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "originalGain",
+        "currentGain",
+        "confidence",
+        "assumptions",
+        "dependencies",
+        "expectedOverlap"
+      ],
+      "properties": {
+        "originalGain": {
+          "$ref": "common.schema.json#/$defs/sourcedNumber"
+        },
+        "currentGain": {
+          "$ref": "common.schema.json#/$defs/sourcedNumber"
+        },
+        "confidence": {
+          "$ref": "common.schema.json#/$defs/sourcedNumber"
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "expectedOverlap": {
+          "$ref": "common.schema.json#/$defs/sourcedNumber"
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "attributedGain",
+        "variance",
+        "outcomeAfter",
+        "attributionConfidence",
+        "denominatorExposed",
+        "guardrails",
+        "evidence"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "provisional",
+            "accepted",
+            "rejected",
+            "no-gain",
+            "regressed"
+          ]
+        },
+        "attributedGain": {
+          "$ref": "common.schema.json#/$defs/sourcedNumber"
+        },
+        "variance": {
+          "$ref": "common.schema.json#/$defs/sourcedNumber"
+        },
+        "outcomeAfter": {
+          "$ref": "common.schema.json#/$defs/sourcedNumber"
+        },
+        "attributionConfidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "unknown"
+          ]
+        },
+        "denominatorExposed": {
+          "$ref": "common.schema.json#/$defs/sourcedNumber"
+        },
+        "guardrails": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/guardrail"
+          }
+        },
+        "cohortResults": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "cohortId",
+              "localGain",
+              "weightedGain",
+              "guardrailState"
+            ],
+            "properties": {
+              "cohortId": {
+                "type": "string"
+              },
+              "localGain": {
+                "$ref": "common.schema.json#/$defs/sourcedNumber"
+              },
+              "weightedGain": {
+                "$ref": "common.schema.json#/$defs/sourcedNumber"
+              },
+              "guardrailState": {
+                "enum": [
+                  "acceptable",
+                  "watch",
+                  "breached",
+                  "unknown"
+                ]
+              }
+            }
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "common.schema.json#/$defs/evidenceReference"
+          }
+        }
+      }
+    },
+    "varianceAnalysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "explanation",
+        "contributors"
+      ],
+      "properties": {
+        "explanation": {
+          "type": "string"
+        },
+        "contributors": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "accurate-model",
+              "amplifier",
+              "underperformance",
+              "dependency",
+              "overlap",
+              "moved-bottleneck",
+              "implementation-difference",
+              "measurement-noise",
+              "not-persistent",
+              "guardrail-breach",
+              "other"
+            ]
+          }
+        }
+      }
+    },
+    "learning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "changedAssumptions",
+        "affectedCandidates",
+        "priorityChanged",
+        "newCandidateNeeded"
+      ],
+      "properties": {
+        "changedAssumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "affectedCandidates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "priorityChanged": {
+          "type": "boolean"
+        },
+        "newCandidateNeeded": {
+          "type": "boolean"
+        }
+      }
+    },
+    "portfolioBefore": {
+      "$ref": "#/$defs/portfolioState"
+    },
+    "portfolioAfter": {
+      "$ref": "#/$defs/portfolioState"
+    },
+    "decision": {
+      "enum": [
+        "keep-provisional",
+        "accept-result",
+        "reject-result",
+        "continue-portfolio",
+        "reorder",
+        "add-candidates",
+        "retire-candidates",
+        "revise-goal",
+        "stop-target-reached"
+      ]
+    },
+    "humanAcceptance": {
+      "$ref": "common.schema.json#/$defs/humanAcceptance"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "result": {
+            "properties": {
+              "status": {
+                "const": "accepted"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          }
+        },
+        "required": [
+          "result"
+        ]
+      },
+      "then": {
+        "properties": {
+          "humanAcceptance": {
+            "properties": {
+              "status": {
+                "const": "accepted"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "portfolioState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "currentOutcome",
+        "outstandingImpact",
+        "credibleRemainingImpact",
+        "coverageRatio"
+      ],
+      "properties": {
+        "currentOutcome": {
+          "$ref": "common.schema.json#/$defs/sourcedNumber"
+        },
+        "outstandingImpact": {
+          "$ref": "common.schema.json#/$defs/sourcedNumber"
+        },
+        "credibleRemainingImpact": {
+          "$ref": "common.schema.json#/$defs/sourcedNumber"
+        },
+        "coverageRatio": {
+          "$ref": "common.schema.json#/$defs/sourcedNumber"
+        }
+      }
+    }
+  }
+}

@@ -27,6 +27,10 @@ Every published artifact must:
 - state when domain expertise or safety review is required;
 - be short enough for its intended working context;
 - link to the next action a practitioner should take.
+- follow `PUBLICATION_POLICY.md` when private workplace experience informs the
+  material;
+- use generic, synthetic, transformed, or independently public evidence rather
+  than private names, links, identifiers, and distinctive facts.
 
 ## Release 0.1: Minimum usable kit
 
@@ -97,6 +101,11 @@ Pitfalls
 
 Illustrative results must be labeled as such. Case studies based on real work
 must describe the measurement and attribution limits.
+
+Private workplace patterns must be transformed into generic domains and
+synthetic or composite numbers. They must not retain internal organizations,
+products, projects, teams, people, documents, links, exact confidential values,
+or identifying event sequences.
 
 ### Canonical examples
 
@@ -235,6 +244,13 @@ spreadsheets, issue trackers, and AI prompts do not solve adequately.
 
 Candidate tooling could validate arithmetic, detect overlap, calculate coverage,
 or preserve a portable history. These are hypotheses, not approved features.
+
+The [StackTrack CLI design](cli/DESIGN.md) narrows the first candidate to
+read-only `lint`, `status`, and `explain` commands over the portable portfolio
+snapshot. Its design has reached role-review fixed point, but implementation
+remains blocked until independent repeated use demonstrates that deterministic
+checks solve errors or review costs that current materials and AI prompts do
+not solve adequately.
 
 ## Proposed repository shape
 

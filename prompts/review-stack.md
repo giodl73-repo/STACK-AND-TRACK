@@ -12,7 +12,8 @@ Input:
 Audit in this order:
 
 1. Outcome integrity
-   - baseline, target, unit, horizon, source, owner, guardrails
+   - goal version, baseline, target, unit, denominator, horizon, source, owner,
+     guardrails, and acceptance conditions
    - target and baseline use compatible units and windows
 
 2. Arithmetic
@@ -39,6 +40,8 @@ Audit in this order:
    - back-loaded impact
    - contingency readiness
    - work-in-progress risk
+   - exposed denominator versus credited global impact
+   - rollback or hotfix time, including repeated rollout stages
 
 5. Measurement and attribution
    - authoritative portfolio measure
@@ -46,12 +49,21 @@ Audit in this order:
    - comparison windows
    - concurrent changes
    - guardrail and cohort measurement
+   - aggregate wins do not conceal scenario or cohort regressions
 
-6. Sensitivity
+6. Goal-change integrity
+   - previous history is preserved
+   - the new system has a measured baseline
+   - prior work is classified transferable, revalidation required,
+     prerequisite, stranded, conflicting, or unknown
+   - transferred mechanisms are not counted again when embedded in the baseline
+   - revised capacity and coverage receive an explicit leadership decision
+
+7. Sensitivity
    Show whether reasonable changes in confidence, overlap, timing, or candidate
    performance move coverage below 1x.
 
-7. Findings
+8. Findings
    Return only pass, finding, or defer. Findings include severity, affected
    artifact or candidate, owner, and closure condition.
 

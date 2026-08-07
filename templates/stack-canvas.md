@@ -5,18 +5,33 @@
 | Field | Value |
 |---|---|
 | Outcome metric | |
+| Goal version and effective date | |
 | Baseline | |
 | Target | |
 | Required impact | |
 | Unit | |
 | Time horizon | |
 | Measurement source | |
+| Outcome denominator and material cohorts | |
 | Outcome owner | |
 | Constraints and guardrails | |
 | Why this matters | |
 | Measurement-quality disposition | pass / finding / defer |
 | Available team capacity | |
 | Safe work-in-progress limit | |
+
+## Goal-change record, if applicable
+
+| Field | Previous goal | Current goal |
+|---|---|---|
+| Baseline, target, and denominator | | |
+| Horizon and acceptance conditions | | |
+| Decision owner and rationale | | |
+| Accepted history preserved through | | |
+
+| Prior work | Transferable | Revalidation required | Prerequisite | Stranded | Conflicting | Unknown | Decision |
+|---|---|---|---|---|---|---|---|
+| | | | | | | | |
 
 ## Candidate stack
 
@@ -51,11 +66,21 @@ Stack Coverage Ratio:
 |---|---|---|---|---|---|
 | | | | | | |
 
+## Scenario and cohort effects
+
+| Candidate | Scenario or cohort | Denominator share | Predicted local gain or regression | Weighted effect | Guardrail | Repair required |
+|---|---|---:|---:|---:|---|---|
+| | | | | | | |
+
 ## Intervention timing
 
 | Candidate | Build | Test | Ship | Stabilize | Measure | Confirm | Earliest learning date | Acceptance date |
 |---|---|---|---|---|---|---|---|---|
 | | | | | | | | | |
+
+For staged deployments, record first exposure, cumulative denominator exposed,
+full exposure, and repeated rollout time after a rollback or hotfix in the
+progress-curve template.
 
 ## First review
 
@@ -77,3 +102,7 @@ Stack Coverage Ratio:
 - [ ] Safety, quality, cost, and affected-user constraints are represented.
 - [ ] Unselected candidates remain available as alternatives.
 - [ ] Selected work fits available capacity and the safe work-in-progress limit.
+- [ ] Material goal changes are versioned and prior work has a transfer audit.
+- [ ] Technology completion is separate from outcome attainment.
+- [ ] Scenario wins do not average away cohort regressions.
+- [ ] Surplus coverage remains option reserve rather than surplus WIP.
