@@ -1,0 +1,106 @@
+{
+  "simulation": "12-week p95 latency reduction",
+  "seed": 20260806,
+  "randomMethod": "Gaussian draw per candidate, clamped to zero through 1.5 times predicted impact",
+  "outcome": {
+    "baselineSeconds": 10.0,
+    "targetSeconds": 8.0,
+    "requiredReductionSeconds": 2.0,
+    "horizonWeeks": 12
+  },
+  "candidates": [
+    {
+      "id": "P-01",
+      "title": "Remove serial metadata lookup",
+      "predictedReductionSeconds": 0.9,
+      "confidence": 0.85,
+      "plannedAcceptanceWeek": 3,
+      "seededTechnicalPotentialSeconds": 0.776,
+      "scenarioAdjustment": "none",
+      "provisionalAttributedGainSeconds": 0.776,
+      "finalAttributedGainSeconds": 0.76,
+      "executed": true
+    },
+    {
+      "id": "P-02",
+      "title": "Parallelize independent downstream calls",
+      "predictedReductionSeconds": 0.8,
+      "confidence": 0.7,
+      "plannedAcceptanceWeek": 5,
+      "seededTechnicalPotentialSeconds": 0.986,
+      "scenarioAdjustment": "shared contention multiplier 0.45",
+      "provisionalAttributedGainSeconds": 0.444,
+      "finalAttributedGainSeconds": 0.43,
+      "executed": true
+    },
+    {
+      "id": "P-03",
+      "title": "Reduce payload parsing and allocation",
+      "predictedReductionSeconds": 0.6,
+      "confidence": 0.8,
+      "plannedAcceptanceWeek": 6,
+      "seededTechnicalPotentialSeconds": 0.834,
+      "scenarioAdjustment": "0.15 second overlap deduction with P-01",
+      "provisionalAttributedGainSeconds": 0.684,
+      "finalAttributedGainSeconds": 0.67,
+      "executed": true
+    },
+    {
+      "id": "P-04",
+      "title": "Precompute a frequently requested projection",
+      "predictedReductionSeconds": 0.7,
+      "confidence": 0.65,
+      "plannedAcceptanceWeek": 8,
+      "seededTechnicalPotentialSeconds": 0.752,
+      "scenarioAdjustment": "error-rate guardrail breach",
+      "provisionalAttributedGainSeconds": 0.752,
+      "finalAttributedGainSeconds": 0.0,
+      "executed": true
+    },
+    {
+      "id": "P-05",
+      "title": "Tune connection reuse and pooling",
+      "predictedReductionSeconds": 0.5,
+      "confidence": 0.6,
+      "plannedAcceptanceWeek": 11,
+      "seededTechnicalPotentialSeconds": 0.75,
+      "scenarioAdjustment": "bounded rollout multiplier 0.50 after P-02 learning",
+      "provisionalAttributedGainSeconds": 0.375,
+      "finalAttributedGainSeconds": 0.36,
+      "executed": true
+    },
+    {
+      "id": "P-06",
+      "title": "Reduce redundant query work",
+      "predictedReductionSeconds": 0.4,
+      "confidence": 0.6,
+      "plannedAcceptanceWeek": 11,
+      "seededTechnicalPotentialSeconds": 0.287,
+      "scenarioAdjustment": "not executed",
+      "provisionalAttributedGainSeconds": null,
+      "finalAttributedGainSeconds": null,
+      "executed": false
+    },
+    {
+      "id": "P-07",
+      "title": "Alternative response-path contingency",
+      "predictedReductionSeconds": 0.4,
+      "confidence": 0.5,
+      "plannedAcceptanceWeek": 12,
+      "seededTechnicalPotentialSeconds": 0.177,
+      "scenarioAdjustment": "not executed",
+      "provisionalAttributedGainSeconds": null,
+      "finalAttributedGainSeconds": null,
+      "executed": false
+    }
+  ],
+  "finalPortfolio": {
+    "acceptedReductionSeconds": 2.22,
+    "acceptedP95Seconds": 7.78,
+    "targetReached": true,
+    "unusedCandidates": [
+      "P-06",
+      "P-07"
+    ]
+  }
+}

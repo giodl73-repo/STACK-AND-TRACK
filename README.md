@@ -75,7 +75,9 @@ STACK-AND-TRACK was developed by Gio Della-Libera and David Blyth.
 - [AI-material role review](context/role-reviews/2026-08-06-ai-materials.md)
 - [Adoption-material role review](context/role-reviews/2026-08-06-adoption-materials.md)
 - [Synthetic corporate panel](simulations/2026-08-06-corporate-panel.md)
+- [12-week performance simulation](simulations/2026-08-06-performance-12-week.md)
 - [Corporate-panel role review](context/role-reviews/2026-08-06-corporate-panel.md)
+- [Performance-simulation role review](context/role-reviews/2026-08-06-performance-simulation.md)
 
 This repository is documentation-first. Software, including optional Rust
 tooling, is admitted only when role review shows that it makes the method easier
