@@ -24,12 +24,20 @@ STACK-AND-TRACK was developed by Gio Della-Libera and David Blyth.
 
 ## Start here
 
+- [Quick start](QUICKSTART.md)
 - [Methodology](METHODOLOGY.md)
 - [Materials plan](MATERIALS_PLAN.md)
 - [Canonical context](CONTEXT.md)
 - [Role governance](.roles/ROLE.md)
 - [Foundation role review](context/role-reviews/2026-08-06-foundation.md)
 - [Materials-plan role review](context/role-reviews/2026-08-06-materials-plan.md)
+- [Release 0.1 content role review](context/role-reviews/2026-08-06-release-0.1-content.md)
+
+## Release 0.1 examples
+
+- [Performance: 10 seconds to 8 seconds](examples/performance-10-to-8.md)
+- [Reliability: 95% to 99%](examples/reliability-95-to-99.md)
+- [Incident management: customer-impact minutes](examples/incident-impact-minutes.md)
 
 This repository is documentation-first. Software, including optional Rust
 tooling, is admitted only when role review shows that it makes the method easier
