@@ -26,6 +26,10 @@ STACK-AND-TRACK was developed by Gio Della-Libera and David Blyth.
 
 - [Quick start](QUICKSTART.md)
 - [Methodology](METHODOLOGY.md)
+- [Principles](PRINCIPLES.md)
+- [Glossary](GLOSSARY.md)
+- [FAQ](FAQ.md)
+- [Framework comparisons](COMPARISONS.md)
 - [Materials plan](MATERIALS_PLAN.md)
 - [Canonical context](CONTEXT.md)
 - [Role governance](.roles/ROLE.md)
@@ -45,6 +49,8 @@ STACK-AND-TRACK was developed by Gio Della-Libera and David Blyth.
 - [Weekly report template](templates/weekly-report.md)
 - [Monthly outcome review template](templates/monthly-outcome-review.md)
 - [Operating-rhythms role review](context/role-reviews/2026-08-06-operating-rhythms.md)
+- [Wave 1 doctrine role review](context/role-reviews/2026-08-06-wave-1-doctrine.md)
+- [Framework-comparison role review](context/role-reviews/2026-08-06-framework-comparisons.md)
 
 This repository is documentation-first. Software, including optional Rust
 tooling, is admitted only when role review shows that it makes the method easier

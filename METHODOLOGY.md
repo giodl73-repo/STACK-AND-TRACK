@@ -1,5 +1,12 @@
 # Methodology
 
+This document defines the core loop. See:
+
+- [`PRINCIPLES.md`](PRINCIPLES.md) for governing doctrine;
+- [`GLOSSARY.md`](GLOSSARY.md) for canonical vocabulary;
+- [`FAQ.md`](FAQ.md) for common edge cases;
+- [`QUICKSTART.md`](QUICKSTART.md) to run a first session.
+
 ## 1. Target
 
 State the current value, desired value, unit, time horizon, and authoritative
@@ -41,6 +48,12 @@ Order the stack by expected contribution, confidence, effort, time to value,
 and strategic constraints. Select the smallest credible portfolio that can
 reach the target while preserving alternatives.
 
+Use **time to learning**, not implementation time alone:
+
+```text
+build + test + ship + stabilize + measure + review
+```
+
 ## 4. Track
 
 For every intervention, record:
@@ -51,6 +64,15 @@ Predicted gain -> Realized gain -> Variance -> Explanation
 
 Track the outcome and the intervention together. Completion without measured
 impact is not a gain.
+
+Interventions move through:
+
+```text
+build -> test -> ship -> stabilize -> measure -> confirm
+```
+
+Results remain provisional until their measurement, attribution, guardrail, and
+confirmation requirements are satisfied.
 
 ## 5. Learn
 
