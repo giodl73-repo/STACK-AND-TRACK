@@ -89,6 +89,26 @@ Recalculate coverage and priority after each meaningful result. Add new
 interventions when the credible remaining stack no longer supports the
 outstanding target.
 
+## 7. Manage the curve
+
+Test when impact and evidence arrive, not only the total expected at the target
+date.
+
+```text
+Required remaining rate = outstanding impact / remaining time
+
+Temporal Coverage Ratio =
+  credible cumulative impact expected by a checkpoint
+  / required cumulative impact by that checkpoint
+```
+
+Stagger learning-now, landing-soon, structural-later, and contingency work so
+the portfolio produces evidence and accepted gains while there is still time
+to adapt. Do not force a linear curve when the system is stepwise or S-shaped,
+and do not treat activity as progress merely to satisfy a reporting rhythm.
+
+See [`guides/progress-curves.md`](guides/progress-curves.md).
+
 ## Bounded metrics
 
 Targets near a hard ceiling, such as 99.9% to 99.999% reliability, may make 2x

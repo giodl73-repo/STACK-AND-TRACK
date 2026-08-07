@@ -10,7 +10,34 @@ Pre-read links:
 - Weekly reports:
 - Result reviews:
 
-## 1. Outcome decision
+## 1. Leadership confidence case
+
+| Dimension | State | Evidence | Change since last month |
+|---|---|---|---|
+| Outcome movement | high / medium / low | | |
+| Portfolio sufficiency | high / medium / low | | |
+| Forecast quality | high / medium / low | | |
+| Learning responsiveness | high / medium / low | | |
+| Governance and guardrails | high / medium / low | | |
+
+```text
+Previous overall confidence:
+Current overall confidence:
+What increased confidence:
+What reduced confidence:
+Evidence expected before the next review:
+Condition that would change confidence:
+```
+
+Overall confidence:
+
+- [ ] High: target is supported with meaningful resilience.
+- [ ] Medium: target remains plausible but requires named evidence or decisions.
+- [ ] Low: current trajectory or portfolio does not credibly support the target.
+
+Confidence is a reasoned judgment, not an average of the five dimensions.
+
+## 2. Outcome decision
 
 | Baseline | Current | Target | Horizon | Sustained? | Guardrails acceptable? |
 |---:|---:|---:|---|---|---|
@@ -24,7 +51,7 @@ Decision:
 - [ ] Change the horizon.
 - [ ] Stop because the outcome no longer warrants investment.
 
-## 2. Portfolio sufficiency
+## 3. Portfolio sufficiency
 
 | Outstanding impact | Credible remaining impact | Coverage ratio | Assessment |
 |---:|---:|---:|---|
@@ -39,7 +66,31 @@ Resources or decisions needed:
 Date coverage will be recalculated:
 ```
 
-## 3. Realized results and forecast learning
+## 4. Progress curve and landing forecast
+
+| Required cumulative impact | Forecast cumulative impact | Accepted cumulative impact | Temporal coverage | Required remaining rate | Target-date forecast |
+|---:|---:|---:|---:|---:|---:|
+| | | | | | |
+
+Decision questions:
+
+- Is progress front-loaded, balanced, or dangerously back-loaded?
+- Does confirmation complete before the target date?
+- Is the required remaining rate achievable without relaxing guardrails?
+- Are learning-now, landing-soon, structural-later, and contingency lanes
+  balanced?
+
+Curve decision:
+
+```text
+Accelerate:
+Start contingency:
+Stop or defer:
+Revise trajectory:
+Revise target or horizon:
+```
+
+## 5. Realized results and forecast learning
 
 | Candidate | Predicted | Realized | Variance | Explanation | Portfolio implication |
 |---|---:|---:|---:|---|---|
@@ -54,7 +105,7 @@ New amplifiers or bottlenecks:
 Confidence changes:
 ```
 
-## 4. Intervention and evidence pipeline
+## 6. Intervention and evidence pipeline
 
 | Candidate | Phase | Shipped? | Earliest learning date | Confirmation date | Evidence expected next | Decision needed |
 |---|---|---|---|---|---|---|
@@ -63,7 +114,7 @@ Confidence changes:
 Distinguish implementation progress, provisional measurement, and accepted
 realized gain. Do not create a result to satisfy the meeting cadence.
 
-## 5. Pareto challenge
+## 7. Pareto challenge
 
 - Are the highest-impact causes still receiving attention?
 - Is easy work displacing difficult high-value work?
@@ -77,7 +128,7 @@ Priority decisions:
 |---|---:|---:|---|---|
 | | | | continue / accelerate / defer / retire | |
 
-## 6. Guardrails and externalities
+## 8. Guardrails and externalities
 
 | Area | State | Evidence | Decision |
 |---|---|---|---|
@@ -88,7 +139,7 @@ Priority decisions:
 | Tail or cohort outcomes | | | |
 | Reporting completeness | | | |
 
-## 7. Leadership decisions
+## 9. Leadership decisions
 
 | Decision | Accountable owner | Due date | Resources or authority | Closure evidence |
 |---|---|---|---|---|
@@ -98,7 +149,7 @@ Do not convert the meeting into an intervention status recital. Discuss only
 evidence, learning, portfolio sufficiency, constraints, and decisions that
 change the outcome.
 
-## 8. Rhythm health
+## 10. Rhythm health
 
 | Measure | Current | Trend | Decision |
 |---|---:|---|---|
@@ -114,6 +165,7 @@ change the outcome.
 ## Review disposition
 
 ```text
+Overall confidence:
 Outcome decision:
 Portfolio decision:
 Target or horizon change:

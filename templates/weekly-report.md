@@ -18,6 +18,19 @@ Ledger link:
 |---:|---:|---:|---:|---|
 | | | | | insufficient / fragile / supported |
 
+## Progress curve
+
+| Required cumulative impact | Forecast cumulative impact | Provisional cumulative impact | Accepted cumulative impact | Temporal coverage | Required remaining rate |
+|---:|---:|---:|---:|---:|---:|
+| | | | | | |
+
+```text
+Curve shape:
+Next trustworthy evidence:
+Impact concentrated near target date:
+Staggering or contingency action:
+```
+
 ## Results accepted this week
 
 | Candidate | Predicted gain | Realized gain | Variance | Explanation | Learning applied |
@@ -61,6 +74,15 @@ a test result, rollout observation, provisional measurement, or confirmation.
 | Decision needed | Owner | Needed by | Consequence of delay | Recommendation |
 |---|---|---|---|---|
 | | | | | |
+
+## Confidence signal for the next leadership review
+
+```text
+Current confidence direction: increasing / stable / decreasing
+Evidence supporting the direction:
+Uncertainty most likely to change confidence:
+Decision needed before the monthly review:
+```
 
 ## Next week
 

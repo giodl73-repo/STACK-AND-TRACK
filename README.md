@@ -49,12 +49,15 @@ STACK-AND-TRACK was developed by Gio Della-Libera and David Blyth.
 ## Operating guides
 
 - [Operating rhythms](guides/operating-rhythms.md)
+- [Progress curves and staggered delivery](guides/progress-curves.md)
 - [Weekly report template](templates/weekly-report.md)
 - [Monthly outcome review template](templates/monthly-outcome-review.md)
+- [Progress curve template](templates/progress-curve.md)
 - [Operating-rhythms role review](context/role-reviews/2026-08-06-operating-rhythms.md)
 - [Wave 1 doctrine role review](context/role-reviews/2026-08-06-wave-1-doctrine.md)
 - [Framework-comparison role review](context/role-reviews/2026-08-06-framework-comparisons.md)
 - [High-reliability and fundamentals role review](context/role-reviews/2026-08-06-high-reliability-fundamentals.md)
+- [Progress-curves role review](context/role-reviews/2026-08-06-progress-curves.md)
 
 This repository is documentation-first. Software, including optional Rust
 tooling, is admitted only when role review shows that it makes the method easier
