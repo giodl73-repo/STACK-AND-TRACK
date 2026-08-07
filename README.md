@@ -30,6 +30,7 @@ STACK-AND-TRACK was developed by Gio Della-Libera and David Blyth.
 - [Glossary](GLOSSARY.md)
 - [FAQ](FAQ.md)
 - [Framework comparisons](COMPARISONS.md)
+- [Responsible AI guide](AI_GUIDE.md)
 - [Materials plan](MATERIALS_PLAN.md)
 - [Canonical context](CONTEXT.md)
 - [Role governance](.roles/ROLE.md)
@@ -53,11 +54,19 @@ STACK-AND-TRACK was developed by Gio Della-Libera and David Blyth.
 - [Weekly report template](templates/weekly-report.md)
 - [Monthly outcome review template](templates/monthly-outcome-review.md)
 - [Progress curve template](templates/progress-curve.md)
+
+## AI and portable models
+
+- [Prompt catalog](prompts/README.md)
+- [Portable model](models/README.md)
+- [JSON Schema](models/stack-and-track.schema.json)
+- [Performance model example](models/example-performance.json)
 - [Operating-rhythms role review](context/role-reviews/2026-08-06-operating-rhythms.md)
 - [Wave 1 doctrine role review](context/role-reviews/2026-08-06-wave-1-doctrine.md)
 - [Framework-comparison role review](context/role-reviews/2026-08-06-framework-comparisons.md)
 - [High-reliability and fundamentals role review](context/role-reviews/2026-08-06-high-reliability-fundamentals.md)
 - [Progress-curves role review](context/role-reviews/2026-08-06-progress-curves.md)
+- [AI-material role review](context/role-reviews/2026-08-06-ai-materials.md)
 
 This repository is documentation-first. Software, including optional Rust
 tooling, is admitted only when role review shows that it makes the method easier

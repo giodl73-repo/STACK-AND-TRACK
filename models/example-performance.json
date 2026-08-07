@@ -1,0 +1,287 @@
+{
+  "schemaVersion": "0.1",
+  "asOf": "2026-08-06T19:00:00Z",
+  "outcome": {
+    "metric": "p95 request latency",
+    "direction": "decrease",
+    "baseline": {
+      "value": 10,
+      "sourceType": "measured",
+      "source": "production telemetry",
+      "observedAt": "2026-08-01T00:00:00Z"
+    },
+    "current": {
+      "value": 10,
+      "sourceType": "measured",
+      "source": "production telemetry",
+      "observedAt": "2026-08-01T00:00:00Z"
+    },
+    "target": {
+      "value": 8,
+      "sourceType": "human-provided",
+      "source": "outcome owner",
+      "observedAt": "2026-08-01T00:00:00Z"
+    },
+    "unit": "seconds",
+    "startDate": "2026-08-01",
+    "targetDate": "2026-10-24",
+    "measurementSource": "production telemetry",
+    "owner": "performance outcome owner",
+    "guardrails": [
+      {
+        "name": "p99 latency",
+        "state": "acceptable",
+        "evidence": "baseline window"
+      },
+      {
+        "name": "error rate",
+        "state": "acceptable",
+        "evidence": "baseline window"
+      }
+    ]
+  },
+  "snapshot": {
+    "requiredImpact": {
+      "value": 2,
+      "sourceType": "calculated",
+      "source": "baseline minus target",
+      "observedAt": "2026-08-06T19:00:00Z"
+    },
+    "outstandingImpact": {
+      "value": 2,
+      "sourceType": "calculated",
+      "source": "current minus target",
+      "observedAt": "2026-08-06T19:00:00Z"
+    },
+    "credibleRemainingImpact": {
+      "value": 1.72,
+      "sourceType": "calculated",
+      "source": "1.12 plus 0.70 minus 0.10 proposed overlap",
+      "observedAt": "2026-08-06T19:00:00Z"
+    },
+    "stackCoverageRatio": {
+      "value": 0.86,
+      "sourceType": "calculated",
+      "source": "1.72 divided by 2.0",
+      "observedAt": "2026-08-06T19:00:00Z"
+    },
+    "horizonCoverageRatio": {
+      "value": 0.86,
+      "sourceType": "calculated",
+      "source": "credible impact expected by target date divided by outstanding impact",
+      "observedAt": "2026-08-06T19:00:00Z"
+    },
+    "requiredRemainingRate": {
+      "value": 0.1667,
+      "sourceType": "calculated",
+      "source": "2.0 seconds divided by 12 weeks",
+      "observedAt": "2026-08-06T19:00:00Z"
+    }
+  },
+  "candidates": [
+    {
+      "id": "P-01",
+      "title": "Remove serial metadata lookup",
+      "status": "selected",
+      "lane": "landing-soon",
+      "mechanism": "Remove one blocking operation from the request critical path.",
+      "originalPredictedImpact": {
+        "value": 1.4,
+        "sourceType": "human-provided",
+        "source": "profiling estimate",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "currentPredictedImpact": {
+        "value": 1.4,
+        "sourceType": "human-provided",
+        "source": "profiling estimate",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "confidence": {
+        "value": 0.8,
+        "sourceType": "human-provided",
+        "source": "performance team assessment",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "credibleImpact": {
+        "value": 1.12,
+        "sourceType": "calculated",
+        "source": "1.4 multiplied by 0.8 before portfolio overlap",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "owner": "candidate owner",
+      "timeline": {
+        "buildStart": "2026-08-08",
+        "testComplete": "2026-08-15",
+        "shipDate": "2026-08-17",
+        "measurementStart": "2026-08-18",
+        "earliestLearningDate": "2026-08-25",
+        "acceptanceDate": "2026-09-01"
+      },
+      "relationships": [],
+      "assumptions": [
+        "Cache validation cost remains small.",
+        "The lookup remains on the measured critical path."
+      ],
+      "result": {
+        "status": "none",
+        "attributedGain": {
+          "value": null,
+          "sourceType": "unknown",
+          "source": null,
+          "observedAt": null
+        },
+        "variance": {
+          "value": null,
+          "sourceType": "unknown",
+          "source": null,
+          "observedAt": null
+        },
+        "explanation": null,
+        "evidence": [],
+        "acceptedBy": null
+      },
+      "revisions": []
+    },
+    {
+      "id": "P-02",
+      "title": "Parallelize independent downstream calls",
+      "status": "selected",
+      "lane": "learning-now",
+      "mechanism": "Overlap independent downstream wait time.",
+      "originalPredictedImpact": {
+        "value": 1,
+        "sourceType": "human-provided",
+        "source": "trace analysis",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "currentPredictedImpact": {
+        "value": 1,
+        "sourceType": "human-provided",
+        "source": "trace analysis",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "confidence": {
+        "value": 0.7,
+        "sourceType": "human-provided",
+        "source": "performance team assessment",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "credibleImpact": {
+        "value": 0.7,
+        "sourceType": "calculated",
+        "source": "1.0 multiplied by 0.7 before portfolio overlap",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "owner": "candidate owner",
+      "timeline": {
+        "buildStart": "2026-08-07",
+        "testComplete": "2026-08-12",
+        "shipDate": "2026-08-14",
+        "measurementStart": "2026-08-15",
+        "earliestLearningDate": "2026-08-20",
+        "acceptanceDate": "2026-08-27"
+      },
+      "relationships": [
+        {
+          "candidateId": "P-01",
+          "type": "overlap",
+          "effect": "Critical-path movement may reduce the independently additive benefit.",
+          "adjustment": {
+            "value": 0.1,
+            "sourceType": "proposed",
+            "source": "initial portfolio overlap estimate",
+            "observedAt": "2026-08-06T19:00:00Z"
+          }
+        }
+      ],
+      "assumptions": [
+        "Downstream capacity absorbs additional concurrency."
+      ],
+      "result": {
+        "status": "none",
+        "attributedGain": {
+          "value": null,
+          "sourceType": "unknown",
+          "source": null,
+          "observedAt": null
+        },
+        "variance": {
+          "value": null,
+          "sourceType": "unknown",
+          "source": null,
+          "observedAt": null
+        },
+        "explanation": null,
+        "evidence": [],
+        "acceptedBy": null
+      },
+      "revisions": []
+    }
+  ],
+  "trajectory": [
+    {
+      "date": "2026-08-01",
+      "requiredCumulativeImpact": {
+        "value": 0,
+        "sourceType": "calculated",
+        "source": "accepted trajectory",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "forecastCredibleCumulativeImpact": {
+        "value": 0,
+        "sourceType": "proposed",
+        "source": "portfolio forecast",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "provisionalCumulativeImpact": {
+        "value": 0,
+        "sourceType": "measured",
+        "source": "no results",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "acceptedCumulativeImpact": {
+        "value": 0,
+        "sourceType": "measured",
+        "source": "no accepted results",
+        "observedAt": "2026-08-06T19:00:00Z"
+      }
+    },
+    {
+      "date": "2026-09-12",
+      "requiredCumulativeImpact": {
+        "value": 1.1,
+        "sourceType": "human-provided",
+        "source": "accepted S-curve",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "forecastCredibleCumulativeImpact": {
+        "value": 1.4,
+        "sourceType": "proposed",
+        "source": "portfolio forecast",
+        "observedAt": "2026-08-06T19:00:00Z"
+      },
+      "provisionalCumulativeImpact": {
+        "value": null,
+        "sourceType": "unknown",
+        "source": null,
+        "observedAt": null
+      },
+      "acceptedCumulativeImpact": {
+        "value": null,
+        "sourceType": "unknown",
+        "source": null,
+        "observedAt": null
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "at": "2026-08-06T19:00:00Z",
+      "decision": "Begin P-01 and P-02 as the first portfolio.",
+      "owner": "performance outcome owner",
+      "status": "proposed",
+      "reason": "Largest early learning value; the 0.86x stack remains insufficient and requires additional candidates before target commitment."
+    }
+  ]
+}

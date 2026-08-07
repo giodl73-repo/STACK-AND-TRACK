@@ -1,0 +1,541 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/giodl73-repo/STACK-AND-TRACK/models/stack-and-track.schema.json",
+  "title": "Stack & Track Model",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "asOf",
+    "outcome",
+    "candidates",
+    "trajectory",
+    "decisions"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "0.1"
+    },
+    "asOf": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "outcome": {
+      "$ref": "#/$defs/outcome"
+    },
+    "snapshot": {
+      "$ref": "#/$defs/snapshot"
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/candidate"
+      }
+    },
+    "trajectory": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/checkpoint"
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/decision"
+      }
+    }
+  },
+  "$defs": {
+    "sourcedNumber": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "sourceType"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "sourceType": {
+          "enum": [
+            "measured",
+            "human-provided",
+            "calculated",
+            "proposed",
+            "unknown"
+          ]
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observedAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "sourceType": {
+                "const": "unknown"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              },
+              "source": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "value": {
+                "type": "number"
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "guardrail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "state"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "acceptable",
+            "watch",
+            "breached",
+            "unknown"
+          ]
+        },
+        "evidence": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "metric",
+        "direction",
+        "baseline",
+        "current",
+        "target",
+        "unit",
+        "startDate",
+        "targetDate",
+        "measurementSource",
+        "owner",
+        "guardrails"
+      ],
+      "properties": {
+        "metric": {
+          "type": "string"
+        },
+        "direction": {
+          "enum": [
+            "increase",
+            "decrease"
+          ]
+        },
+        "baseline": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "current": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "target": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "targetDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "measurementSource": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "guardrails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/guardrail"
+          }
+        }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "requiredImpact": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "outstandingImpact": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "credibleRemainingImpact": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "stackCoverageRatio": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "horizonCoverageRatio": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "requiredRemainingRate": {
+          "$ref": "#/$defs/sourcedNumber"
+        }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidateId",
+        "type",
+        "effect"
+      ],
+      "properties": {
+        "candidateId": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "dependency",
+            "overlap",
+            "amplifier"
+          ]
+        },
+        "effect": {
+          "type": "string"
+        },
+        "adjustment": {
+          "$ref": "#/$defs/sourcedNumber"
+        }
+      }
+    },
+    "timeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "buildStart": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "testComplete": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "shipDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "measurementStart": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "earliestLearningDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "acceptanceDate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        }
+      }
+    },
+    "revision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "at",
+        "field",
+        "previous",
+        "next",
+        "reason"
+      ],
+      "properties": {
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "field": {
+          "type": "string"
+        },
+        "previous": {},
+        "next": {},
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "attributedGain",
+        "variance",
+        "explanation",
+        "acceptedBy"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "none",
+            "provisional",
+            "accepted",
+            "rejected",
+            "no-gain",
+            "regressed"
+          ]
+        },
+        "attributedGain": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "variance": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "explanation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "acceptedBy": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "status",
+        "lane",
+        "mechanism",
+        "originalPredictedImpact",
+        "currentPredictedImpact",
+        "confidence",
+        "credibleImpact",
+        "owner",
+        "timeline",
+        "relationships",
+        "assumptions",
+        "result",
+        "revisions"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "candidate",
+            "selected",
+            "in-progress",
+            "testing",
+            "shipping",
+            "stabilizing",
+            "measuring",
+            "confirming",
+            "realized",
+            "no-gain",
+            "regressed",
+            "deferred",
+            "retired"
+          ]
+        },
+        "lane": {
+          "enum": [
+            "learning-now",
+            "landing-soon",
+            "structural-later",
+            "contingency"
+          ]
+        },
+        "mechanism": {
+          "type": "string"
+        },
+        "originalPredictedImpact": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "currentPredictedImpact": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "confidence": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "credibleImpact": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "owner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "timeline": {
+          "$ref": "#/$defs/timeline"
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationship"
+          }
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "result": {
+          "$ref": "#/$defs/result"
+        },
+        "revisions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/revision"
+          }
+        }
+      }
+    },
+    "checkpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "date",
+        "requiredCumulativeImpact",
+        "forecastCredibleCumulativeImpact",
+        "provisionalCumulativeImpact",
+        "acceptedCumulativeImpact"
+      ],
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "requiredCumulativeImpact": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "forecastCredibleCumulativeImpact": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "provisionalCumulativeImpact": {
+          "$ref": "#/$defs/sourcedNumber"
+        },
+        "acceptedCumulativeImpact": {
+          "$ref": "#/$defs/sourcedNumber"
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "at",
+        "decision",
+        "owner",
+        "status",
+        "reason"
+      ],
+      "properties": {
+        "at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "decision": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "rejected",
+            "deferred",
+            "closed"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
