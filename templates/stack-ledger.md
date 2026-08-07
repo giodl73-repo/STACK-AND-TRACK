@@ -11,7 +11,7 @@ original prediction; add revisions so forecasting changes remain visible.
 
 ## Intervention ledger
 
-| ID | Intervention | Status | Original predicted gain | Current predicted gain | Confidence | Credible gain | Priority | Owner | Start | Decision date | Realized gain | Variance | Learning reference |
+| ID | Intervention | Status | Original predicted gain | Current predicted gain | Confidence | Credible gain | Priority | Owner | Earliest learning date | Acceptance date | Realized gain | Variance | Learning reference |
 |---|---|---|---:|---:|---:|---:|---:|---|---|---|---:|---:|---|
 | S-01 | | candidate | | | | | | | | | | | |
 | S-02 | | candidate | | | | | | | | | | | |
@@ -22,7 +22,11 @@ Allowed status values:
 - `candidate`
 - `selected`
 - `in-progress`
+- `testing`
+- `shipping`
+- `stabilizing`
 - `measuring`
+- `confirming`
 - `realized`
 - `no-gain`
 - `regressed`
@@ -36,6 +40,12 @@ Allowed status values:
 | dependency | | | | |
 | overlap | | | | |
 | amplifier | | | | |
+
+## Intervention timing
+
+| Candidate | Build window | Test window | Ship date | Stabilization window | Measurement window | Confirmation window | Planned time to learning | Actual time to learning |
+|---|---|---|---|---|---|---|---|---|
+| | | | | | | | | |
 
 ## Forecast revisions
 

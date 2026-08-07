@@ -39,6 +39,13 @@ STACK-AND-TRACK was developed by Gio Della-Libera and David Blyth.
 - [Reliability: 95% to 99%](examples/reliability-95-to-99.md)
 - [Incident management: customer-impact minutes](examples/incident-impact-minutes.md)
 
+## Operating guides
+
+- [Operating rhythms](guides/operating-rhythms.md)
+- [Weekly report template](templates/weekly-report.md)
+- [Monthly outcome review template](templates/monthly-outcome-review.md)
+- [Operating-rhythms role review](context/role-reviews/2026-08-06-operating-rhythms.md)
+
 This repository is documentation-first. Software, including optional Rust
 tooling, is admitted only when role review shows that it makes the method easier
 to use without making spreadsheets, documents, or AI assistants second-class.

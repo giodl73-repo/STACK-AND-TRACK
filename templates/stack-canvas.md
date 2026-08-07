@@ -17,7 +17,7 @@
 
 ## Candidate stack
 
-| ID | Candidate intervention | Predicted impact | Confidence | Credible impact | Effort | Time to value | Dependencies | Overlap | Owner | Measurement |
+| ID | Candidate intervention | Predicted impact | Confidence | Credible impact | Effort | Time to learning | Dependencies | Overlap | Owner | Measurement |
 |---|---|---:|---:|---:|---|---|---|---|---|---|
 | S-01 | | | | | | | | | | |
 | S-02 | | | | | | | | | | |
@@ -47,6 +47,12 @@ Stack Coverage Ratio:
 | Candidate | Baseline window | Result window | Attribution risks | Guardrails | Decision date |
 |---|---|---|---|---|---|
 | | | | | | |
+
+## Intervention timing
+
+| Candidate | Build | Test | Ship | Stabilize | Measure | Confirm | Earliest learning date | Acceptance date |
+|---|---|---|---|---|---|---|---|---|
+| | | | | | | | | |
 
 ## First review
 

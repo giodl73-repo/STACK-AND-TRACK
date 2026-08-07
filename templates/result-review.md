@@ -11,6 +11,10 @@
 | Measurement source | |
 | Baseline window | |
 | Result window | |
+| Ship date | |
+| Stabilization window | |
+| Measurement window | |
+| Confirmation window | |
 
 ## Prediction
 
@@ -35,6 +39,7 @@
 | Guardrail results | |
 | Attribution confidence | |
 | Evidence links | |
+| Result status | provisional / confirmed / rejected |
 
 ## Explain the variance
 
@@ -80,6 +85,9 @@ Explanation:
 
 Decision:
 
+- [ ] Keep the result provisional until the confirmation window closes.
+- [ ] Accept the result as confirmed realized gain.
+- [ ] Reject the result because attribution or guardrails are insufficient.
 - [ ] Continue current portfolio.
 - [ ] Reorder candidates.
 - [ ] Add candidates.

@@ -90,7 +90,8 @@ Prefer candidates with:
 - high confidence;
 - low overlap;
 - reasonable effort;
-- short time to learning;
+- appropriate time to learning, including build, test, ship, stabilization, and
+  measurement;
 - acceptable safety and externality risk.
 
 Keep unselected candidates visible as alternatives. Do not delete the rest of
@@ -100,6 +101,9 @@ the stack merely because they are not first.
 
 For each selected intervention, state:
 
+- build, test, ship, stabilization, measurement, and confirmation windows;
+- the earliest date a trustworthy provisional result is possible;
+- the date a persistent result can be accepted;
 - when measurement begins and ends;
 - what comparison establishes the baseline;
 - what other changes could affect the result;
@@ -116,6 +120,10 @@ Predicted gain -> Realized gain -> Variance -> Explanation -> Learning
 
 Completion is not a gain. A gain exists only when the outcome changes and the
 attribution argument is credible.
+
+A shipped intervention may remain in `stabilizing`, `measuring`, or
+`confirming` status. Do not accept realized gain before its evidence window is
+valid.
 
 ## 7. Apply the learning
 
