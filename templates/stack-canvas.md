@@ -14,14 +14,17 @@
 | Outcome owner | |
 | Constraints and guardrails | |
 | Why this matters | |
+| Measurement-quality disposition | pass / finding / defer |
+| Available team capacity | |
+| Safe work-in-progress limit | |
 
 ## Candidate stack
 
-| ID | Candidate intervention | Predicted impact | Confidence | Credible impact | Effort | Time to learning | Dependencies | Overlap | Owner | Measurement |
-|---|---|---:|---:|---:|---|---|---|---|---|---|
-| S-01 | | | | | | | | | | |
-| S-02 | | | | | | | | | | |
-| S-03 | | | | | | | | | | |
+| ID | Candidate intervention | Estimate form | Predicted impact | Confidence | Credible impact | Effort | Time to learning | Dependencies | Overlap | Owner | Measurement |
+|---|---|---|---:|---:|---:|---|---|---|---|---|---|
+| S-01 | | point / range / scenario | | | | | | | | | |
+| S-02 | | point / range / scenario | | | | | | | | | |
+| S-03 | | point / range / scenario | | | | | | | | | |
 
 ## Coverage
 
@@ -67,8 +70,10 @@ Stack Coverage Ratio:
 
 - [ ] Baseline and target use the same unit.
 - [ ] Measurement source is authoritative.
+- [ ] Measurement definition, freshness, completeness, and comparability were reviewed.
 - [ ] Candidate impacts are not silently double-counted.
 - [ ] Confidence and assumptions are visible.
 - [ ] The selected portfolio credibly supports the target.
 - [ ] Safety, quality, cost, and affected-user constraints are represented.
 - [ ] Unselected candidates remain available as alternatives.
+- [ ] Selected work fits available capacity and the safe work-in-progress limit.

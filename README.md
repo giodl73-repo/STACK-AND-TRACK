@@ -51,6 +51,8 @@ STACK-AND-TRACK was developed by Gio Della-Libera and David Blyth.
 
 - [Operating rhythms](guides/operating-rhythms.md)
 - [Progress curves and staggered delivery](guides/progress-curves.md)
+- [Measurement quality](guides/measurement-quality.md)
+- [Multi-metric outcomes](guides/multi-metric-outcomes.md)
 - [First working session](guides/first-working-session.md)
 - [Self-service usability test](guides/usability-test.md)
 - [Adoption maturity](guides/adoption-maturity.md)
@@ -72,6 +74,8 @@ STACK-AND-TRACK was developed by Gio Della-Libera and David Blyth.
 - [Progress-curves role review](context/role-reviews/2026-08-06-progress-curves.md)
 - [AI-material role review](context/role-reviews/2026-08-06-ai-materials.md)
 - [Adoption-material role review](context/role-reviews/2026-08-06-adoption-materials.md)
+- [Synthetic corporate panel](simulations/2026-08-06-corporate-panel.md)
+- [Corporate-panel role review](context/role-reviews/2026-08-06-corporate-panel.md)
 
 This repository is documentation-first. Software, including optional Rust
 tooling, is admitted only when role review shows that it makes the method easier

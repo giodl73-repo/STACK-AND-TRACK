@@ -40,6 +40,27 @@ future software. They are adversarial by design.
 | `assurance/goodhart-auditor.md` | Goodhart Auditor | Metric improvement vs. real outcome improvement |
 | `assurance/safety-and-externalities-steward.md` | Safety and Externalities Steward | Local gain vs. shifted cost, risk, or harm |
 
+## Synthetic corporate panel
+
+Panel roles simulate practitioner perspectives for material review. They are
+disclosed simulations, not real employees, governance votes, expert testimony,
+or substitutes for independent usability testing.
+
+| File | Role | Primary tension |
+|---|---|---|
+| `panel/junior-software-engineer.md` | Junior Software Engineer | Learnable method vs. unfamiliar planning language |
+| `panel/frontend-performance-engineer.md` | Frontend Performance Engineer | User-perceived speed vs. aggregate technical metrics |
+| `panel/senior-backend-engineer.md` | Senior Backend Engineer | Useful estimates vs. distributed-system uncertainty |
+| `panel/principal-systems-engineer.md` | Principal Systems Engineer | Portfolio simplification vs. nonlinear architecture |
+| `panel/site-reliability-engineer.md` | Site Reliability Engineer | Fast reliability learning vs. rare-event evidence |
+| `panel/data-platform-engineer.md` | Data Platform Engineer | Timely decisions vs. trustworthy measurement |
+| `panel/security-engineer.md` | Security Engineer | Pareto efficiency vs. severe low-frequency exposure |
+| `panel/ml-engineer.md` | ML Engineer | Experimental iteration vs. drift and delayed effects |
+| `panel/technical-product-manager.md` | Technical Product Manager | Executive clarity vs. methodological detail |
+| `panel/technical-program-manager.md` | Technical Program Manager | Cross-team timing vs. outcome accountability |
+| `panel/engineering-manager.md` | Engineering Manager | Impact ambition vs. team capacity and sustainability |
+| `panel/customer-escalation-lead.md` | Customer Escalation Lead | Quantified portfolio vs. qualitative customer pain |
+
 ## Review contract
 
 Roles return `pass`, `finding`, or `defer`. A finding records severity
@@ -66,6 +87,10 @@ A change reaches fixed point when:
 8. Relevant stakeholders
 9. Assurance
 10. Editorial
+
+Synthetic panel review may run after parliament and before final editorial
+review. Panel findings follow the same severity and closure contract but do not
+replace required stakeholder or independent-human review.
 
 ## Software Admission Gate
 

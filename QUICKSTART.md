@@ -52,6 +52,15 @@ record:
 Do not silently convert guesses into facts. A rough estimate with an explicit
 assumption is more useful than false precision.
 
+Choose an estimation form appropriate to the evidence:
+
+- point estimate for stable, well-understood effects;
+- range for uncertain magnitude;
+- scenarios for nonlinear, dependent, or bounded systems.
+
+Record how the estimate becomes credible. Do not collapse a wide range to its
+most convenient point.
+
 ## 3. Test whether the plan adds up
 
 Start with nominal coverage:
