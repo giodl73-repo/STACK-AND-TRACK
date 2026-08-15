@@ -1,7 +1,15 @@
 # STACK-AND-TRACK
 
-STACK-AND-TRACK is a closed-loop method for turning a measurable target into a
-credible impact portfolio, then updating that portfolio from actual results.
+**A work list is not a plan until its expected impact adds up.**
+
+STACK-AND-TRACK is a tool-independent, closed-loop method for turning a
+measurable target into a credible impact portfolio, then updating that
+portfolio from actual results.
+
+AI can generate candidate work quickly; the harder skill is making assumptions
+inspectable, rejecting double-counted impact, and changing the plan when
+evidence disagrees. STACK-AND-TRACK makes that reasoning reusable by keeping
+the target, estimates, results, variance, and learning in one loop.
 
 ```text
 Target
@@ -33,11 +41,27 @@ produce the target. Stack & Track makes the missing reasoning inspectable:
 - Does the remaining plan still add up?
 
 Shipment is visible, but only measured and accepted outcome movement counts as
-realized gain.
+realized gain. Without that distinction, a busy roadmap can stay green while
+the outcome remains unchanged.
 
-## Start in 60 minutes
+## See the method add up
 
-1. Read the [Quick Start](QUICKSTART.md).
+The [performance example](examples/performance-10-to-8.md) starts with a
+synthetic service that must reduce p95 latency from 10 seconds to 8 seconds.
+Five candidates total 4.3 seconds of nominal opportunity, but confidence,
+overlap, and dependency adjustments reduce credible planned impact to 2.5
+seconds: only 1.25x coverage against the required 2-second reduction.
+
+After the first three interventions, the measured result reaches 7.8 seconds.
+One concurrency idea delivers less than predicted, so the team lowers
+confidence in another candidate that shares the same capacity assumption. That
+is the reusable principle: **a result should change the remaining plan, not
+just close the completed item.**
+
+## Start here: run a first session in 60 minutes
+
+1. Read the [Quick Start](QUICKSTART.md); it includes a complete session
+   sequence and an illustrative outcome statement.
 2. Define the outcome in the [Stack Canvas](templates/stack-canvas.md).
 3. Keep the live portfolio in the [Stack Ledger](templates/stack-ledger.md).
 4. Compare prediction with evidence in the
@@ -48,6 +72,9 @@ A first session may validly conclude that the target is unclear or the stack is
 insufficient. Preventing a false commitment is useful progress.
 
 ## Core concepts
+
+The arithmetic is deliberately simple enough to inspect in a document or
+spreadsheet. The discipline lies in deciding what is credible enough to count.
 
 ```text
 Required impact = distance from baseline to target
@@ -69,6 +96,10 @@ twice as much work or exceed safe work-in-progress limits.
 
 ## Learn through examples
 
+The examples test one principle across different systems: use a common outcome
+unit without pretending that uncertainty, constraints, or failure modes are
+the same.
+
 | Need | Example |
 |---|---|
 | Basic additive impact | [Performance: 10 seconds to 8 seconds](examples/performance-10-to-8.md) |
@@ -84,6 +115,9 @@ All private-derived patterns are generalized according to the
 not expose private workplace provenance.
 
 ## Run the method
+
+Adopt only the working surfaces needed for the next decision; the method should
+reduce unsupported certainty, not add ceremony.
 
 | Activity | Guide or template |
 |---|---|
@@ -101,6 +135,9 @@ See the [generic use-case catalog](guides/use-case-catalog.md) for additional
 domains.
 
 ## Method reference
+
+These references keep portable doctrine separate from examples and operating
+guidance, so teams can challenge the method without reverse-engineering a tool.
 
 - [Methodology](METHODOLOGY.md): canonical operating loop and formulas.
 - [Principles](PRINCIPLES.md): governing doctrine.
@@ -125,7 +162,7 @@ results, waive guardrails, or make accountable decisions.
 
 Documents and spreadsheets remain first-class. Custom software is not required.
 
-## Evidence and maturity
+## Evidence, maturity, and limits
 
 The methodology and current materials have reached synthetic role-review fixed
 point under the repository's [role governance](.roles/ROLE.md). The review
@@ -144,7 +181,18 @@ Synthetic panels and simulations are design-review evidence, not independent
 user research, expert testimony, organizational endorsement, or proof of
 adoption.
 
+STACK-AND-TRACK does not replace project management, domain expertise,
+measurement design, safety review, or accountable decisions. Its estimates are
+forecasts, not promises. AI may structure and challenge evidence, but it may
+not invent measurements or accept results. The method currently provides
+documents, templates, examples, schemas, and a reviewed CLI design; it does not
+provide an implemented application or hosted service.
+
 ## Contributing feedback
+
+The open question is practical, not rhetorical: can an unfamiliar practitioner
+use these materials without coaching and produce a plan whose arithmetic and
+evidence another person can inspect?
 
 Use the [self-service usability test](guides/usability-test.md) and
 [practitioner feedback template](templates/practitioner-feedback.md) when
@@ -156,4 +204,4 @@ adoption program.
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) — © 2026 Gio Della-Libera.
