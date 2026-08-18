@@ -162,6 +162,16 @@ results, waive guardrails, or make accountable decisions.
 
 Documents and spreadsheets remain first-class. Custom software is not required.
 
+Retained portable-model proof:
+
+```powershell
+pwsh -NoProfile -File tests\check-proof.ps1
+pwsh -NoProfile -File tools\check-portable-model.ps1 models\example-performance.json
+```
+
+The example model is accepted. The retained invalid model returns structured
+schema-version and missing-required-field failures.
+
 ## Evidence, maturity, and limits
 
 The methodology and current materials have reached synthetic role-review fixed
